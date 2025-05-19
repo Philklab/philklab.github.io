@@ -1,16 +1,6 @@
 @charset "UTF-8";
 /*-----------------------------------------------------------
 
-  Template Name: Droow - Ajax Portfolio Showcase HTML Template
-  Template URI: http://theme.dsngrid.com/droow
-  Description: Droow Ajax Portfolio Showcase HTML Template
-  Author: design_grid
-  Author URI: https://themeforest.net/user/design_grid
-  Version: 1.0.0
-
--------------------------------------------------------------*/
-/*-----------------------------------------------------------
-
     1.  Variables
     2.  Mixins
       - Mixins Master
@@ -39,6 +29,39 @@
     12.Version Light
 
 -------------------------------------------------------------*/
+
+
+/* Fixed position language switcher with centered text */
+.language-switcher {
+    position: fixed !important;
+    top: 20px !important;
+    right: 180px !important;
+    z-index: 1000 !important;
+    background: rgba(40, 40, 40, 0.9) !important;
+    padding: 5px 12px !important; /* Slightly more horizontal padding */
+    border-radius: 3px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-align: center !important; /* Center the text */
+    display: flex !important; /* Use flexbox for perfect centering */
+    justify-content: center !important; /* Center horizontally */
+    align-items: center !important; /* Center vertically */
+    min-width: 60px !important; /* Ensure there's enough width for proper centering */
+}
+
+.language-switcher a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    margin: 0 3px !important;
+    display: inline-block !important; /* Better spacing control */
+}
+
+.language-switcher a.active {
+    color: #aaaaaa !important;
+}
+
+
 /* -------------------------------------------------------
                      mixins
 -------------------------------------------------------- */
