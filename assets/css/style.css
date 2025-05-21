@@ -30,35 +30,57 @@
 
 -------------------------------------------------------------*/
 
-
-/* Fixed position language switcher with centered text */
+/* Language switcher styles with mobile responsiveness */
 .language-switcher {
-    position: fixed !important;
-    top: 20px !important;
-    right: 180px !important;
-    z-index: 1000 !important;
-    background: rgba(40, 40, 40, 0.9) !important;
-    padding: 5px 12px !important; /* Slightly more horizontal padding */
-    border-radius: 3px !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    text-align: center !important; /* Center the text */
-    display: flex !important; /* Use flexbox for perfect centering */
-    justify-content: center !important; /* Center horizontally */
-    align-items: center !important; /* Center vertically */
-    min-width: 60px !important; /* Ensure there's enough width for proper centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(40, 40, 40, 0.9);
+    padding: 5px 12px;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 1000;
+}
+
+/* Desktop positioning */
+@media screen and (min-width: 992px) {
+    .language-switcher {
+        position: fixed;
+        top: 20px;
+        right: 180px;
+    }
+}
+
+/* Mobile positioning - adjusted further left by 15px */
+@media screen and (max-width: 991px) {
+    .language-switcher {
+        position: absolute;
+        top: 20px;
+        right: 115px; /* Increased from 100px to 115px (added 15px) to move it more left */
+        padding: 3px 8px;
+        font-size: 12px;
+    }
+}
+
+/* For very small screens */
+@media screen and (max-width: 375px) {
+    .language-switcher {
+        right: 85px; /* Also adjusted by 15px from previous value */
+    }
 }
 
 .language-switcher a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    margin: 0 3px !important;
-    display: inline-block !important; /* Better spacing control */
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 3px;
+    display: inline-block;
 }
 
 .language-switcher a.active {
-    color: #aaaaaa !important;
+    color: #aaaaaa;
 }
 
 
