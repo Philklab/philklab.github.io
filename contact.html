@@ -8,7 +8,8 @@
   <meta name="discrption" content="parallax one page" />
   <meta name="keyword"
     content="Phil Klab, electronic music, electro, electro-pop, trance, improvisation, personal, artist, portfolio, booking, festival, rave, live performance, responsive, simple" />
-  <!-- Security Headers -->
+
+  <!-- SECURITY HEADERS ADDED -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-ancestors 'none';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
@@ -179,6 +180,15 @@
                 <div class="form-box">
                   <h3>Write A Comment</h3>
                   <form id="contact-form" class="form" method="post" action="https://formspree.io/f/mnnpwvyw" data-toggle="validator">
+                    <!-- SECURITY ADDITIONS -->
+                    <input type="hidden" name="_token" id="csrf-token" value="">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="Contact from Phil Klab Website">
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
+                    <!-- END SECURITY ADDITIONS -->
+                    
                     <div class="messages"></div>
                     <div class="input__wrap controls">
                       <div class="form-group">
@@ -186,7 +196,7 @@
                         <div class="entry">
                           <label>What's your name?</label>
                           <input id="form_name" type="text" name="name" placeholder="Type your name" required="required"
-                            data-error="name is required.">
+                            data-error="name is required." maxlength="100">
                         </div>
                         <div class="help-block with-errors"></div>
                       </div>
@@ -195,7 +205,7 @@
                         <div class="entry">
                           <label>What's your email address?</label>
                           <input id="form_email" type="email" name="email" placeholder="Type your Email Address"
-                            required="required" data-error="Valid email is required.">
+                            required="required" data-error="Valid email is required." maxlength="254">
                         </div>
                         <div class="help-block with-errors"></div>
                       </div>
@@ -205,7 +215,7 @@
                           <label>What's up?</label>
                           <textarea id="form_message" class="form-control" name="message"
                             placeholder="Tell me about you and the world" required="required"
-                            data-error="Please,leave me a message."></textarea>
+                            data-error="Please,leave me a message." maxlength="1000"></textarea>
                         </div>
                         <div class="help-block with-errors"></div>
                       </div>
@@ -247,11 +257,11 @@
               <p>© 2025 Phil Klab</p>
               <ul>
                 <ul>
-                  <li class="image-zoom" data-dsn="parallax"><a href="https://www.youtube.com/@PhilKlab" target="_blank">Youtube</a></li>
-                  <li class="image-zoom" data-dsn="parallax"><a href="https://www.instagram.com/phil.klab/" target="_blank">Instagram</a></li>
-                  <li class="image-zoom" data-dsn="parallax"><a href="https://www.facebook.com/profile.php?id=61574189264314" target="_blank">Facebook</a></li>
-                  <li class="image-zoom" data-dsn="parallax"><a href="https://on.soundcloud.com/Kjgn1Xia2ogSDHiD8" target="_blank">Soundcloud</a></li>
-                  <li class="image-zoom" data-dsn="parallax"><a href="https://www.tiktok.com/@philklab?is_from_webapp=1&sender_device=pc" target="_blank">Tik Tok</a></li>
+                  <li class="image-zoom" data-dsn="parallax"><a href="https://www.youtube.com/@PhilKlab" target="_blank" rel="noopener noreferrer">Youtube</a></li>
+                  <li class="image-zoom" data-dsn="parallax"><a href="https://www.instagram.com/phil.klab/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                  <li class="image-zoom" data-dsn="parallax"><a href="https://www.facebook.com/profile.php?id=61574189264314" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                  <li class="image-zoom" data-dsn="parallax"><a href="https://on.soundcloud.com/Kjgn1Xia2ogSDHiD8" target="_blank" rel="noopener noreferrer">Soundcloud</a></li>
+                  <li class="image-zoom" data-dsn="parallax"><a href="https://www.tiktok.com/@philklab?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">Tik Tok</a></li>
                 </ul>
               </ul>
             </div>
@@ -299,11 +309,51 @@
       const form = document.getElementById('contact-form');
       const messagesDiv = document.querySelector('.messages');
       
+      // SECURITY: Generate CSRF token
+      function generateCSRFToken() {
+        return 'csrf_' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      }
+      document.getElementById('csrf-token').value = generateCSRFToken();
+      
+      // SECURITY: Rate limiting
+      let lastSubmission = 0;
+      const RATE_LIMIT = 30000; // 30 seconds
+      
       form.addEventListener('submit', function(event) {
         event.preventDefault();
         
+        // SECURITY: Rate limiting check
+        const now = Date.now();
+        if (now - lastSubmission < RATE_LIMIT) {
+          messagesDiv.innerHTML = '<div class="alert alert-warning">Please wait before submitting again.</div>';
+          return;
+        }
+        
+        // SECURITY: Validate honeypot
+        if (form.querySelector('input[name="_gotcha"]').value !== '') {
+          messagesDiv.innerHTML = '<div class="alert alert-danger">Spam detected.</div>';
+          return;
+        }
+        
         // Get form data
         const formData = new FormData(form);
+        
+        // SECURITY: Basic validation
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+        
+        if (!name || !email || !message) {
+          messagesDiv.innerHTML = '<div class="alert alert-danger">All fields are required.</div>';
+          return;
+        }
+        
+        // SECURITY: Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          messagesDiv.innerHTML = '<div class="alert alert-danger">Please enter a valid email address.</div>';
+          return;
+        }
         
         // Send the form data to Formspree
         fetch(form.action, {
@@ -319,6 +369,9 @@
           if (data.ok) {
             messagesDiv.innerHTML = '<div class="alert alert-success">Contact form successfully submitted. Thank you, I will get back to you soon!</div>';
             form.reset();
+            lastSubmission = Date.now();
+            // SECURITY: Generate new CSRF token
+            document.getElementById('csrf-token').value = generateCSRFToken();
           } 
           // On error
           else {
