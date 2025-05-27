@@ -128,7 +128,7 @@
                 <div class="headefr-fexid" data-dsn-header="project">
                     <div class="bg" id="dsn-hero-parallax-img" data-dsn-ajax="img">
                         <div class="bg-image cover-bg" data-overlay="0"
-                            data-image-src="assets/img/project/project2/1.jpg"></div>
+                            data-image-src="assets/img/project/project2/5.jpg"></div>
                     </div>
 
                     <div class="scroll" data-dsn-animate="ajax">
@@ -182,10 +182,10 @@
                             </div>
                             <div class="pro-text" data-dsn-animate="up">
                                 <h3> Coming in<br> Summer 2025</h3>
-                                <p>I am currently developing the first official track for Phil Klab, laying the groundwork for what's to come. This is just the 
-                                    beginning of an exciting sonic journey! Throughout summer and fall 2025, I'll be releasing a series of singles that showcase the 
-                                    unique fusion of melodic trance, funk house, and electro-blues that defines my sound. <br><br>These releases will build toward my first 
-                                    complete album 'Triangulation,' set to launch in spring 2026. Each track offers a glimpse into different facets of my musical 
+                                <p>I am currently developing the first official track for Phil Klab, laying the groundwork for what's to come. This is just the
+                                    beginning of an exciting sonic journey! Throughout summer and fall 2025, I'll be releasing a series of singles that showcase the
+                                    unique fusion of melodic trance, funk house, and electro-blues that defines my sound. <br><br>These releases will build toward my first
+                                    complete album 'Triangulation,' set to launch in spring 2026. Each track offers a glimpse into different facets of my musical
                                     universe, where complex melodies intertwine with tribal and funk rhythms. </p>
                             </div>
                         </div>
@@ -216,7 +216,8 @@
                 <footer>
                     <div class="info">
                         <div class="contact-footer">
-                            <a href="mailto:Contact@Philklab.net" class="phone image-zoom" data-dsn="parallax">Contact@Philklab.net</a>
+                            <a href="#" class="phone image-zoom email-protected" data-dsn="parallax" 
+                                data-user="Contact" data-domain="Philklab.net">Click here to reveal email</a>
                             <a href="https://www.websynths.com/microtonal/" target="_blank" rel="noopener noreferrer">Cryptic Entry - Click Here</a>
                         </div>
                         <div class="copyright-social">
@@ -267,6 +268,18 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const emailLink = document.getElementById('email-link');
+        const user = 'Contact';
+        const domain = 'Philklab.net';
+        const email = user + '@' + domain;
+        
+        emailLink.href = 'mailto:' + email;
+        emailLink.setAttribute('data-hover-text', email);
+    });
+    </script>
+
 </body>
 
 </html>

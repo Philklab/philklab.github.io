@@ -180,9 +180,9 @@
                         </div>
                         <div class="inner">
                             <h2 data-dsn-animate="text">A Whole New Experience</h2>
-                            <p data-dsn-animate="up">My Electro Live Improvisation performances were built for flexibility — to be folded 
-                                spontaneously in places like Montréal's metro stations and city parks. <br><br> The surprised smiles, curious glances, 
-                                and genuine engagement from passersby reawaken the excitement I used to feel playing electro, jazz and classical music 
+                            <p data-dsn-animate="up">My Electro Live Improvisation performances were built for flexibility — to be folded
+                                spontaneously in places like Montréal's metro stations and city parks. <br><br> The surprised smiles, curious glances,
+                                and genuine engagement from passersby reawaken the excitement I used to feel playing electro, jazz and classical music
                                 in my youth.
                             </p>
                         </div>
@@ -214,8 +214,8 @@
                              data-dsn-duration="170%" data-dsn-move="0%">PHIL KLAB
                         </div>
                         <div class="inner">
-                            <h2 data-dsn-animate="text">New sets, new crowds, stronger connection. Every live performance is 
-                                an opportunity to build something from scratch — shaping the music in real time while 
+                            <h2 data-dsn-animate="text">New sets, new crowds, stronger connection. Every live performance is
+                                an opportunity to build something from scratch — shaping the music in real time while
                                 staying tuned in to the energy of the audience.
                             </h2>
                         </div>
@@ -295,7 +295,8 @@
             <footer>
                 <div class="info">
                     <div class="contact-footer">
-                        <a href="mailto:Contact@Philklab.net" class="phone image-zoom" data-dsn="parallax">Contact@Philklab.net</a>
+                        <a href="#" class="phone image-zoom email-protected" data-dsn="parallax" 
+                            data-user="Contact" data-domain="Philklab.net">Click here to reveal email</a>
                         <a href="https://drumbit.app/" target="_blank" rel="noopener noreferrer">Audio Rabbit Hole - Click Here</a>
                     </div>
                     <div class="copyright-social">
@@ -344,6 +345,18 @@
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/dsn-grid.js"></script>
 <script src="assets/js/custom.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const emailLink = document.getElementById('email-link');
+    const user = 'Contact';
+    const domain = 'Philklab.net';
+    const email = user + '@' + domain;
+    
+    emailLink.href = 'mailto:' + email;
+    emailLink.setAttribute('data-hover-text', email);
+});
+</script>
+
 </body>
 
 </html>

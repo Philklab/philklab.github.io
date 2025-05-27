@@ -176,14 +176,14 @@
                             </div>
                             <div class="inner">
                                 <h2 data-dsn-animate="text">My Music and Performances</h2>
-                                <p data-dsn-animate="up">I share live performances and studio experiments on YouTube, TikTok, 
-                                    Instagram, and Facebook when they're worth preserving. These platforms are your direct line 
+                                <p data-dsn-animate="up">I share live performances and studio experiments on YouTube, TikTok,
+                                    Instagram, and Facebook when they're worth preserving. These platforms are your direct line
                                     to my musical world and the first place I announce upcoming tracks and performances.<br><br>
-                                    My work flows in two main currents: spontaneous live improvisation sets created in the moment 
-                                    with hardware synths and loop stations, and structured sequenced compositions for my upcoming 
-                                    album 'Triangulation' and future live shows.<br><br>In the coming months, expect selected 
-                                    track releases and live performance recordings that capture the essence of Phil Klab's electronic 
-                                    improvisations. These recordings will showcase the unique sonic landscapes and experimental 
+                                    My work flows in two main currents: spontaneous live improvisation sets created in the moment
+                                    with hardware synths and loop stations, and structured sequenced compositions for my upcoming
+                                    album 'Triangulation' and future live shows.<br><br>In the coming months, expect selected
+                                    track releases and live performance recordings that capture the essence of Phil Klab's electronic
+                                    improvisations. These recordings will showcase the unique sonic landscapes and experimental
                                     approach that define the Phil Klab sound.</p>
                                 <a class="bottom-link" data-dsn-animate="up"
                                     href="https://www.youtube.com/@PhilKlab" target="_blank">
@@ -278,7 +278,8 @@
                 <footer>
                     <div class="info">
                         <div class="contact-footer">
-                            <a href="mailto:Contact@Philklab.net" class="phone image-zoom" data-dsn="parallax">Contact@Philklab.net</a>
+                            <a href="#" class="phone image-zoom email-protected" data-dsn="parallax" 
+                            data-user="Contact" data-domain="Philklab.net">Click here to reveal email</a>
                             <a href="https://www.femurdesign.com/theremin/" target="_blank" rel="noopener noreferrer">Synth your way - Click Here</a>
                         </div>
                         <div class="copyright-social">
@@ -328,6 +329,18 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const emailLink = document.getElementById('email-link');
+        const user = 'Contact';
+        const domain = 'Philklab.net';
+        const email = user + '@' + domain;
+        
+        emailLink.href = 'mailto:' + email;
+        emailLink.setAttribute('data-hover-text', email);
+    });
+    </script>
+
 </body>
 
 </html>

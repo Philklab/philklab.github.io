@@ -234,7 +234,8 @@
         <footer>
           <div class="info">
               <div class="contact-footer">
-                  <a href="mailto:Contact@Philklab.net" class="phone image-zoom" data-dsn="parallax">Contact@Philklab.net</a>
+                  <a href="#" class="phone image-zoom email-protected" data-dsn="parallax" 
+                    data-user="Contact" data-domain="Philklab.net">Click here to reveal email</a>
                   <a href="https://roland50.studio/" target="_blank" rel="noopener noreferrer">Secret Portal - Click Here</a>
               </div>
             <div class="copyright-social">
@@ -325,7 +326,17 @@
       });
     });
   </script>
-
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const emailLink = document.getElementById('email-link');
+      const user = 'Contact';
+      const domain = 'Philklab.net';
+      const email = user + '@' + domain;
+      
+      emailLink.href = 'mailto:' + email;
+      emailLink.setAttribute('data-hover-text', email);
+  });
+  </script>
 </body>
 
 </html>

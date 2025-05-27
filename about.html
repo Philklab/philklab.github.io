@@ -157,9 +157,9 @@
                             </div>
                             <div class="pro-text">
                                 <h3 data-dsn-animate="up">The<br> Old Time</h3>
-                                <p data-dsn-animate="up">"I started making electronic music during that primitive era when computers 
-                                    were barely more advanced than calculators.<br><br>My PC would wheeze and groan under the strain of playing 
-                                    more than three tracks at once—a time when "render" meant praying your computer wouldn't crash before 
+                                <p data-dsn-animate="up">"I started making electronic music during that primitive era when computers
+                                    were barely more advanced than calculators.<br><br>My PC would wheeze and groan under the strain of playing
+                                    more than three tracks at once—a time when "render" meant praying your computer wouldn't crash before
                                     finishing a four-minute song."  <br> <br>                 Phil Klab
 
                                 </p>
@@ -175,20 +175,20 @@
                             </div>
                             <div class="inner">
                                 <h2 data-dsn-animate="text">Bio</h2>
-                                <p data-dsn-animate="up">A multi-instrumentalist with deep roots in music theory, Phil Klab (a.k.a. Philippe Labonté) journey began with 
-                                    classical training at age 9. His early talent led him to perform as a soloist with the Metropolitan 
-                                    Orchestra of Montreal at the prestigious Orford Festival at just 11 years old.<br><br>At 15, he won both the 
+                                <p data-dsn-animate="up">A multi-instrumentalist with deep roots in music theory, Phil Klab (a.k.a. Philippe Labonté) journey began with
+                                    classical training at age 9. His early talent led him to perform as a soloist with the Metropolitan
+                                    Orchestra of Montreal at the prestigious Orford Festival at just 11 years old.<br><br>At 15, he won both the
                                     jury and audience prizes at Quebec's orchestral composition competition with his work "The Fantastic Odyssey."
-                                    During his teenage years, he expanded into jazz, developing sophisticated improvisation skills that would 
-                                    become central to his artistic identity.<br><br> As a versatile keyboardist, he performed regularly with various 
-                                    rock, pop, and jazz ensembles, while experimenting with electronic music compositions. 
+                                    During his teenage years, he expanded into jazz, developing sophisticated improvisation skills that would
+                                    become central to his artistic identity.<br><br> As a versatile keyboardist, he performed regularly with various
+                                    rock, pop, and jazz ensembles, while experimenting with electronic music compositions.
                                     It was during this formative period that he cultivated his ability to seamlessly blend genres.
-                                    After composing advertising jingles for national television Radio-Canada and participating for nearly 
-                                    two decades in the Birthjam collective—a jazz-funk experimentation laboratory that constantly pushed 
-                                    sound boundaries—Phil Klab emerges in 2025 as a singular project that defies categorization.<br><br>Both with 
-                                    his electro improvisation performances and his hardware-based productions using sequencers, synths, and drum 
-                                    machines, he sculpts live compositions where complex and transcendent melodies dance over tribal and funk 
-                                    rhythms. His dissonant filters envelop rich harmonics to create an immediately recognizable sound signature 
+                                    After composing advertising jingles for national television Radio-Canada and participating for nearly
+                                    two decades in the Birthjam collective—a jazz-funk experimentation laboratory that constantly pushed
+                                    sound boundaries—Phil Klab emerges in 2025 as a singular project that defies categorization.<br><br>Both with
+                                    his electro improvisation performances and his hardware-based productions using sequencers, synths, and drum
+                                    machines, he sculpts live compositions where complex and transcendent melodies dance over tribal and funk
+                                    rhythms. His dissonant filters envelop rich harmonics to create an immediately recognizable sound signature
                                     that fuses melodic and hard trance, funk house, electro-blues, and experimental pop.</p>
                                     </h6>
                                 <ul class="mt-20" data-dsn-animate="up">
@@ -218,13 +218,13 @@
                                             <h2 data-dsn-animate="up">WHEN ELECTRONS MISBEHAVE</h2>
                                         </div>
 
-                                        <h6 data-dsn-animate="up">Beats and sounds collide until something illegally catchy emerges - blame it on happy accidents or calculated chaos! 
+                                        <h6 data-dsn-animate="up">Beats and sounds collide until something illegally catchy emerges - blame it on happy accidents or calculated chaos!
                                             
                                         </h6>
 
-                                        <p data-dsn-animate="up">Whether I'm sweet-talking my loopstation in improv performances or having deep philosophical debates with sequencers, synths, and drum 
+                                        <p data-dsn-animate="up">Whether I'm sweet-talking my loopstation in improv performances or having deep philosophical debates with sequencers, synths, and drum
                                             machines in the studio, it's where precision engineering gets tipsy and flirts with wild spontaneity.<br><br>
-                                            A sonic misadventure awaits - surprising, vibrant, and shamelessly addictive. Ready to hear what happens 
+                                            A sonic misadventure awaits - surprising, vibrant, and shamelessly addictive. Ready to hear what happens
                                             when audio gear misbehaves? Hit those demos and witness the madness firsthand!
                                         </p>
 
@@ -386,7 +386,8 @@
                 <footer>
                     <div class="info">
                         <div class="contact-footer">
-                            <a href="mailto:Contact@Philklab.net" class="phone image-zoom" data-dsn="parallax">Contact@Philklab.net</a>
+                            <a href="#" class="phone image-zoom email-protected" data-dsn="parallax" 
+                                data-user="Contact" data-domain="Philklab.net">Click here to reveal email</a>
                             <a href="https://tonematrix.audiotool.com/" target="_blank" rel="noopener noreferrer">Hidden Door - Click Here</a>
                         </div>
                         <div class="copyright-social">
@@ -440,6 +441,18 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const emailLink = document.getElementById('email-link');
+        const user = 'Contact';
+        const domain = 'Philklab.net';
+        const email = user + '@' + domain;
+        
+        emailLink.href = 'mailto:' + email;
+        emailLink.setAttribute('data-hover-text', email);
+    });
+    </script>
+
 </body>
 
 </html>

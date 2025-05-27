@@ -128,7 +128,7 @@
                 <div class="headefr-fexid" data-dsn-header="project">
                     <div class="bg" id="dsn-hero-parallax-img" data-dsn-ajax="img">
                         <div class="bg-image cover-bg" data-overlay="0"
-                            data-image-src="assets/img/project/project2/1.jpg"></div>
+                            data-image-src="assets/img/project/project2/5.jpg"></div>
                     </div>
 
                     <div class="scroll" data-dsn-animate="ajax">
@@ -183,10 +183,10 @@
                             <div class="pro-text" data-dsn-animate="up">
                                 <h3> À Venir<br> à l'Été 2025</h3>
                                 <p>Je travaille actuellement sur la première track officielle de Phil Klab. C'est le début d'un
-                                     trip sonore hors de l'ordinaire ! Pendant l'été et l'automne 2025, je vais drop une série de singles 
-                                     qui showcasent la fusion unique de trance mélodique, hard trance, funk house et pop expérimentale 
-                                     qui définit mon sound. <br><br>Ces releases vont build vers mon premier album complet 'Triangulation', 
-                                     prévu pour le printemps 2026. Chaque track donne un aperçu des différentes facettes de mon 
+                                     trip sonore hors de l'ordinaire ! Pendant l'été et l'automne 2025, je vais drop une série de singles
+                                     qui showcasent la fusion unique de trance mélodique, hard trance, funk house et pop expérimentale
+                                     qui définit mon sound. <br><br>Ces releases vont build vers mon premier album complet 'Triangulation',
+                                     prévu pour le printemps 2026. Chaque track donne un aperçu des différentes facettes de mon
                                      univers musical, où les mélodies complexes se mélangent avec des rythmes tribaux et funk. </p>
                             </div>
                         </div>
@@ -217,7 +217,8 @@
                 <footer>
                     <div class="info">
                         <div class="contact-footer">
-                            <a href="mailto:Contact@Philklab.net" class="phone image-zoom" data-dsn="parallax">Contact@Philklab.net</a>
+                            <a href="#" class="phone image-zoom email-protected" data-dsn="parallax" 
+                                data-user="Contact" data-domain="Philklab.net">Cliquez pour révéler l'email</a>
                             <a href="https://www.websynths.com/microtonal/" target="_blank" rel="noopener noreferrer">Entrée Cryptée - Clique Ici</a>
                         </div>
                         <div class="copyright-social">
@@ -268,6 +269,18 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const emailLink = document.getElementById('email-link');
+        const user = 'Contact';
+        const domain = 'Philklab.net';
+        const email = user + '@' + domain;
+        
+        emailLink.href = 'mailto:' + email;
+        emailLink.setAttribute('data-hover-text', email);
+    });
+    </script>
+
 </body>
 
 </html>

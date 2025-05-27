@@ -176,16 +176,16 @@
                             </div>
                             <div class="inner">
                                 <h2 data-dsn-animate="text">Mes performances électroniques</h2>
-                                <p data-dsn-animate="up">Je partage mes performances live et expérimentations studio sur YouTube, 
-                                    TikTok, Instagram et Facebook. Ces plateformes constituent un accès privilégié à mon 
-                                    univers musical. Mais c'est d'abord ici sur mon site que j'annoncerai en premier mes nouveaux morceaux et performances 
-                                    à venir.<br><br>Mon travail s'articule autour de deux courants principaux : des sets 
-                                    d'improvisation live spontanés créés dans l'instant avec des synthés hardware et des 
-                                    loop stations, et des compositions séquencées structurées pour mon prochain 
-                                    album 'Triangulation' et mes futurs concerts.<br><br>Dans les mois à venir, 
-                                    attendez-vous à des sorties de morceaux sélectionnés et des enregistrements 
-                                    de performances live qui capturent l'essence des improvisations électroniques 
-                                    de Phil Klab. Ces enregistrements présenteront les paysages sonores uniques et 
+                                <p data-dsn-animate="up">Je partage mes performances live et expérimentations studio sur YouTube,
+                                    TikTok, Instagram et Facebook. Ces plateformes constituent un accès privilégié à mon
+                                    univers musical. Mais c'est d'abord ici sur mon site que j'annoncerai en premier mes nouveaux morceaux et performances
+                                    à venir.<br><br>Mon travail s'articule autour de deux courants principaux : des sets
+                                    d'improvisation live spontanés créés dans l'instant avec des synthés hardware et des
+                                    loop stations, et des compositions séquencées structurées pour mon prochain
+                                    album 'Triangulation' et mes futurs concerts.<br><br>Dans les mois à venir,
+                                    attendez-vous à des sorties de morceaux sélectionnés et des enregistrements
+                                    de performances live qui capturent l'essence des improvisations électroniques
+                                    de Phil Klab. Ces enregistrements présenteront les paysages sonores uniques et
                                     l'approche expérimentale qui définissent le son Phil Klab.</p>
                                 <a class="bottom-link" data-dsn-animate="up"
                                     href="https://www.youtube.com/@PhilKlab" target="_blank">
@@ -235,12 +235,12 @@
                                         <div class="vertical-title">
                                             <h2 data-dsn-animate="up">Melodic Rebellion: The Phil Klab Incident</h2>
                                         </div>
-                                        <h6 data-dsn-animate="up">Phil Klab fusionne vingt ans d'expérience jazz et classique avec 
-                                            l'électronique moderne. Une approche unique qui transforme l'improvisation traditionnelle 
-                                            en paysages sonores inattendus.                    
+                                        <h6 data-dsn-animate="up">Phil Klab fusionne vingt ans d'expérience jazz et classique avec
+                                            l'électronique moderne. Une approche unique qui transforme l'improvisation traditionnelle
+                                            en paysages sonores inattendus.
                                             </h6>
 
-                                        <p data-dsn-animate="up">Explorez le parcours d'un musicien qui a troqué 
+                                        <p data-dsn-animate="up">Explorez le parcours d'un musicien qui a troqué
                                             les salles de concert pour créer sa propre définition de la performance "live".
                                             </p>
 
@@ -279,8 +279,9 @@
                 <footer>
                     <div class="info">
                         <div class="contact-footer">
-                            <a href="mailto:Contact@Philklab.net" class="phone image-zoom" data-dsn="parallax">Contact@Philklab.net</a>
-                            <a href="https://www.femurdesign.com/theremin/" target="_blank" rel="noopener noreferrer">Synthétiseur mystère - Click Here</a>
+                            <a href="#" class="phone image-zoom email-protected" data-dsn="parallax" 
+                            data-user="Contact" data-domain="Philklab.net">Cliquez pour révéler l'email</a>
+                            <a href="https://www.femurdesign.com/theremin/" target="_blank" rel="noopener noreferrer">Amateur de Synthé ? - Clique Ici</a>
                         </div>
                         <div class="copyright-social">
                             <p>© 2025 Phil Klab</p>
@@ -329,6 +330,18 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const emailLink = document.getElementById('email-link');
+        const user = 'Contact';
+        const domain = 'Philklab.net';
+        const email = user + '@' + domain;
+        
+        emailLink.href = 'mailto:' + email;
+        emailLink.setAttribute('data-hover-text', email);
+    });
+    </script>
+
 </body>
 
 </html>

@@ -180,10 +180,10 @@
                         </div>
                         <div class="inner">
                             <h2 data-dsn-animate="text">Une Performance Unique</h2>
-                            <p data-dsn-animate="up">Mes performances d'improvisation électro live ont été conçues pour la 
-                                flexibilité — pour être déployées spontanément dans des lieux comme les stations de métro de Montréal et 
-                                les parcs urbains. <br><br> Les sourires surpris, les regards curieux et l'engagement authentique 
-                                des passants réveillent en moi le plaisir que je ressentais en jouant de l'électro, du jazz et de la 
+                            <p data-dsn-animate="up">Mes performances d'improvisation électro live ont été conçues pour la
+                                flexibilité — pour être déployées spontanément dans des lieux comme les stations de métro de Montréal et
+                                les parcs urbains. <br><br> Les sourires surpris, les regards curieux et l'engagement authentique
+                                des passants réveillent en moi le plaisir que je ressentais en jouant de l'électro, du jazz et de la
                                 musique classique dans ma jeunesse.
                             </p>
                         </div>
@@ -215,8 +215,8 @@
                              data-dsn-duration="170%" data-dsn-move="0%">PHIL KLAB
                         </div>
                         <div class="inner">
-                            <h2 data-dsn-animate="text">Nouveaux sets, nouvelles foules, connexion plus forte. Chaque performance 
-                                live est une chance de builder quelque chose from scratch — sculpter la musique en direct 
+                            <h2 data-dsn-animate="text">Nouveaux sets, nouvelles foules, connexion plus forte. Chaque performance
+                                live est une chance de builder quelque chose from scratch — sculpter la musique en direct
                                 tout en captant le flow du public.
                             </h2>
                         </div>
@@ -296,7 +296,8 @@
             <footer>
                 <div class="info">
                     <div class="contact-footer">
-                        <a href="mailto:Contact@Philklab.net" class="phone image-zoom" data-dsn="parallax">Contact@Philklab.net</a>
+                        <a href="#" class="phone image-zoom email-protected" data-dsn="parallax" 
+                            data-user="Contact" data-domain="Philklab.net">Cliquez pour révéler l'email</a>
                         <a href="https://drumbit.app/" target="_blank" rel="noopener noreferrer">Univers Auditif Mystérieux - Clique Ici</a>
                     </div>
                     <div class="copyright-social">
@@ -345,6 +346,18 @@
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/dsn-grid.js"></script>
 <script src="assets/js/custom.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const emailLink = document.getElementById('email-link');
+    const user = 'Contact';
+    const domain = 'Philklab.net';
+    const email = user + '@' + domain;
+    
+    emailLink.href = 'mailto:' + email;
+    emailLink.setAttribute('data-hover-text', email);
+});
+</script>
+
 </body>
 
 </html>
