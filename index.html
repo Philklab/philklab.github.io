@@ -600,8 +600,9 @@
                                 <div class="footer-block col-contact">
                                     <h4 class="footer-title">Contact</h4>
                                     <p class="over-hidden"><strong></strong><span></span><a class="link-hover email-protected"
-                                            data-hover-text="" href="#" 
-                                            data-user="Contact" data-domain="Philklab.net">Click here to reveal email</a>
+                                            data-hover-text="" href="#"
+                                            data-user="Contact" data-domain="Philklab.net"
+                                            onclick="revealEmail(this); return false;">Cliquez pour révéler l'email</a>
                                     </p>
                                 </div>
                             </div>
@@ -665,14 +666,19 @@
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const emailLink = document.getElementById('email-link');
-        const user = 'Contact';
-        const domain = 'Philklab.net';
+    function revealEmail(element) {
+        const user = element.getAttribute('data-user');
+        const domain = element.getAttribute('data-domain');
         const email = user + '@' + domain;
         
-        emailLink.href = 'mailto:' + email;
-        emailLink.setAttribute('data-hover-text', email);
+        // Changer le texte et le lien
+        element.textContent = email;
+        element.href = 'mailto:' + email;
+        element.onclick = null; // Permettre le mailto après révélation
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Script prêt pour d'autres fonctionnalités si besoin
     });
     </script>
 

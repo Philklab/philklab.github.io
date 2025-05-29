@@ -301,8 +301,9 @@
             <footer>
                 <div class="info">
                     <div class="contact-footer">
-                        <a href="#" class="phone image-zoom email-protected" data-dsn="parallax" 
-                            data-user="Contact" data-domain="Philklab.net">Cliquez pour révéler l'email</a>
+                        <a href="#" class="phone image-zoom email-protected" data-dsn="parallax"
+                        data-user="Contact" data-domain="Philklab.net" 
+                        onclick="revealEmail(this); return false;">Cliquez pour révéler l'email</a>
                         <a href="https://drumbit.app/" target="_blank" rel="noopener noreferrer">Univers Auditif Mystérieux - Clique Ici</a>
                     </div>
                     <div class="copyright-social">
@@ -352,14 +353,20 @@
 <script src="assets/js/dsn-grid.js"></script>
 <script src="assets/js/custom.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const emailLink = document.getElementById('email-link');
-    const user = 'Contact';
-    const domain = 'Philklab.net';
+function revealEmail(element) {
+    const user = element.getAttribute('data-user');
+    const domain = element.getAttribute('data-domain');
     const email = user + '@' + domain;
     
-    emailLink.href = 'mailto:' + email;
-    emailLink.setAttribute('data-hover-text', email);
+    // Changer le texte et le lien
+    element.textContent = email;
+    element.href = 'mailto:' + email;
+    element.onclick = null; // Permettre le mailto après révélation
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Ce code n'est plus nécessaire car on utilise maintenant le onclick
+    // Mais on peut le garder comme fallback pour d'autres liens email si besoin
 });
 </script>
 
