@@ -710,6 +710,44 @@
         // Script prêt pour d'autres fonctionnalités si besoin
     });
     </script>
+    <script>
+    (function () {
+    // Map EN → FR pages (we'll auto-invert for FR → EN)
+    const enToFr = {
+        'index.html': 'index-fr.html',
+        'about.html': 'about-fr.html',
+        'project-1.html': 'project-1-fr.html',
+        'project-2.html': 'project-2-fr.html',
+        'project-3.html': 'project-3-fr.html',
+        'contact.html': 'contact-fr.html'
+    };
+
+    // Normalize current path to a filename (GitHub Pages often serves / as index.html)
+    const path = location.pathname.split('/').pop() || 'index.html';
+
+    // Build the reverse map FR → EN
+    const frToEn = Object.fromEntries(
+        Object.entries(enToFr).map(([en, fr]) => [fr, en])
+    );
+
+    // Determine counterparts
+    const isFR = path.endsWith('-fr.html');
+    const counterpart = isFR ? (frToEn[path] || 'index.html')
+                            : (enToFr[path] || 'index-fr.html');
+
+    // Set hrefs
+    const enLink = document.getElementById('lang-en');
+    const frLink = document.getElementById('lang-fr');
+
+    if (enLink && frLink) {
+        enLink.href = isFR ? counterpart : path;     // current page in EN
+        frLink.href = isFR ? path : counterpart;     // current page in FR
+
+        // Add active class to the current language (matches your existing CSS usage)
+        (isFR ? frLink : enLink).classList.add('active');
+    }
+    })();
+    </script>
 
 </body>
 
