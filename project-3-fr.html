@@ -5,9 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="discrption" content="parallax one page" />
     <meta name="keyword"
-        content="Phil Klab, electronic music, electro, néo-classique, electro-funk minimal, house, ambient techno, personal, artist, portfolio, booking, festival, rave, live performance, responsive, simple" />
+        content="Phil Klab, musique électronique, electro, néoclassique, electro-funk minimal, house, ambient techno, personnel, artiste, portfolio, booking, festival, rave, performance live, responsive, simple" />
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
@@ -15,7 +14,9 @@
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
         img-src 'self' data: https:;
-        connect-src 'self' https://formspree.io https://www.google-analytics.com;
+        connect-src 'self' https://www.google-analytics.com;
+        form-action 'self' https://7df3d48b.sibforms.com;
+        frame-src https://7df3d48b.sibforms.com https://www.youtube.com https://w.soundcloud.com;
         frame-ancestors 'none';
         referrer no-referrer-when-downgrade;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -23,11 +24,13 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Cache-Control" content="max-age=604800, public">
 
-    <title>Audio / Vidéo — Phil Klab</title>
-    <meta name="description" content="Découvre mes performances live et capsules électro visuelles." />
-    <meta property="og:title" content="Audio / Vidéo — Phil Klab" />
-    <meta property="og:description" content="Découvre mes performances live et capsules électro visuelles." />
-    <meta property="og:image" content="https://philklab.com/assets/img/og-image.jpg" />
+    <title>Écouter — Phil Klab</title>
+    <meta name="description" content="Regarder et écouter Phil Klab — productions et performances live sur YouTube et SoundCloud. Néo-classique électronique, ambient techno, house et electro-funk minimal. Montréal." />
+    <meta property="og:title" content="Écouter — Phil Klab" />
+    <meta property="og:description" content="Regarder et écouter Phil Klab — productions et performances live sur YouTube et SoundCloud. Néo-classique électronique, ambient techno, house et electro-funk minimal. Montréal." />
+    <meta property="og:image" content="https://philklab.net/assets/img/og-image.jpg" />
+    <meta property="og:url" content="https://philklab.net/project-3-fr.html" />
+    <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_CA" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -54,17 +57,92 @@
     <!-- custom styles (optional) -->
     <link href="assets/css/plugins.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- Page-specific styling (self-contained) -->
+    <style>
+        .footer-newsletter { margin-top: 10px; }
+        .footer-newsletter .nl-field { display: flex; flex-wrap: wrap; gap: 8px; }
+        .footer-newsletter input[type="email"] {
+            flex: 1 1 auto; min-width: 0; padding: 10px 12px;
+            background: transparent; border: 1px solid currentColor; color: inherit;
+            border-radius: 2px; font: inherit;
+        }
+        .footer-newsletter button {
+            flex: 0 0 auto; padding: 10px 16px; cursor: pointer;
+            background: currentColor; border: 1px solid currentColor; border-radius: 2px;
+            font: inherit; text-transform: uppercase; letter-spacing: .05em;
+        }
+        .footer-newsletter button span { color: #000; mix-blend-mode: difference; }
+        .footer-newsletter .newsletter-msg { margin: 8px 0 0; font-size: .85em; min-height: 1.1em; }
+
+        /* Clear, self-contained clickable affordances (theme-agnostic) */
+        .pp-link {
+            display: inline-flex; align-items: center; gap: .4em;
+            font-weight: 700; text-decoration: underline; text-underline-offset: 3px;
+            transition: gap .2s ease;
+        }
+        .pp-link:hover { gap: .7em; }
+
+        .btn-cta {
+            display: inline-flex; align-items: center; gap: .55em;
+            margin-top: 22px; padding: 14px 28px;
+            border: 2px solid currentColor; border-radius: 40px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
+            font-size: .8em; line-height: 1; text-decoration: none;
+            transition: gap .2s ease, opacity .2s ease;
+        }
+        .btn-cta:hover { gap: 1em; opacity: .72; }
+        .btn-cta .arrow, .pp-link .arrow { transition: transform .2s ease; }
+
+        /* Listen hero: full background image */
+        .listen-hero-bg {
+            position: relative;
+            background: url('assets/img/project/project3/1.png') center / cover no-repeat;
+        }
+        .listen-hero-bg::before {
+            content: ''; position: absolute; inset: 0; z-index: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,.7), rgba(0,0,0,.3));
+        }
+        .listen-hero-bg > .container { position: relative; z-index: 1; }
+        .listen-hero-bg .contenet-hero,
+        .listen-hero-bg .contenet-hero h1,
+        .listen-hero-bg .contenet-hero p,
+        .listen-hero-bg .contenet-hero .cat span { color: #fff; }
+
+        /* Media embeds */
+        .media-block { margin-top: 28px; }
+        .video-embed {
+            position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */
+            border-radius: 6px; overflow: hidden; background: rgba(128,128,128,.12);
+        }
+        .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        .media-sub {
+            font-size: .82em; letter-spacing: .12em; text-transform: uppercase; opacity: .6;
+            margin: 40px 0 4px;
+        }
+        .shorts-row { margin-top: 12px; }
+        .short-embed {
+            position: relative; width: 100%; padding-top: 177.78%; /* 9:16 */
+            margin-top: 16px;
+            border-radius: 6px; overflow: hidden; background: rgba(128,128,128,.12);
+        }
+        .short-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        .sc-embed { border-radius: 6px; overflow: hidden; }
+        .sc-embed iframe { display: block; width: 100%; border: 0; }
+        .media-cta { margin-top: 18px; }
+    </style>
+
 </head>
 
-
 <body class="hamburger-menu dsn-effect-scroll dsn-ajax" data-dsn-mousemove="true">
+
     <div class="preloader">
         <div class="preloader-after"></div>
         <div class="preloader-before"></div>
         <div class="preloader-block">
             <div class="title">PHIL KLAB</div>
             <div class="percent">0</div>
-            <div class="loading">Chargement...</div>
+            <div class="loading">loading...</div>
         </div>
         <div class="preloader-bar">
             <div class="preloader-progress"></div>
@@ -78,8 +156,8 @@
                 <div class="inner-header">
                     <div class="main-logo">
                         <a href="index-fr.html">
-                            <img class="dark-logo" src="assets/img/logo-dark.png" alt="Logo of Phil Klab - Dark Version" />
-                            <img class="light-logo" src="assets/img/logo.png" alt="Logo of Phil Klab - Light Version" />
+                            <img class="dark-logo" src="assets/img/logo-dark.png" alt="Logo of Phil Klab - Dark Version"/>
+                            <img class="light-logo" src="assets/img/logo.png" alt="Logo of Phil Klab - Light Version"/>
                         </a>
                     </div>
                 </div>
@@ -89,20 +167,14 @@
                             <a href="index-fr.html">Accueil</a>
                         </li>
                         <li>
-                            <a href="about-fr.html">À Propos</a>
+                            <a href="project-3-fr.html">Écouter</a>
                         </li>
                         <li>
-                            <a href="project-3-fr.html">Musique</a>
+                            <a href="project-4-fr.html">Thunder &amp; Silk</a>
                         </li>
-                        <li class="custom-drop-down">
-                            <a href="#">Projets</a>
-                            <ul>
-                                <li><a href="project-4-fr.html">Phil Klab - Thunder and Silk</a></li>
-                                <li><a href="project-1-fr.html">The Dopamine Synth</a></li>
-                                <li><a href="project-2-fr.html">Improvisation Électro "Live"</a></li>
-                            </ul>
+                        <li>
+                            <a href="about-fr.html">À propos</a>
                         </li>
-                        <li><a href="contact-fr.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -111,15 +183,13 @@
             <div class="header-container">
                 <div class="logo main-logo">
                     <a href="index-fr.html">
-                        <img class="dark-logo" src="assets/img/logo-dark.png" alt="Logo of Phil Klab - Dark Version" />
-                        <img class="light-logo" src="assets/img/logo.png" alt="Logo of Phil Klab - Light Version" />
+                        <img class="dark-logo" src="assets/img/logo-dark.png" alt="Logo of Phil Klab - Dark Version"/>
+                        <img class="light-logo" src="assets/img/logo.png" alt="Logo of Phil Klab - Light Version"/>
                     </a>
                 </div>
-
                 <div class="language-switcher">
-                    <a href="project-3-fr.html">FR</a> / <a href="project-3.html" class="active">EN</a>
+                    <a href="project-3.html">EN</a> / <a href="project-3-fr.html" class="active">FR</a>
                 </div>
-
                 <div class="menu-icon" data-dsn="parallax" data-dsn-move="5">
                     <div class="icon-m">
                         <i class="menu-icon-close fas fa-times"></i>
@@ -145,55 +215,30 @@
                 <div class="nav-content">
                     <div class="inner-content">
                         <address class="v-middle">
-                            <span>Montreal</span>
-                            <span>Quebec, Canada</span>
-                            <span>Contact@Philklab.net</span>
+                            <span>Phil Klab</span>
+                            <span>Montréal, Canada</span>
+                            <span><a href="mailto:contact@philklab.net">contact@philklab.net</a></span>
                         </address>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
     <!-- End Nav Bar -->
 
+
     <main class="main-root">
         <div id="dsn-scrollbar">
             <header>
-                <div class="headefr-fexid" data-dsn-header="project">
-                    <div class="bg" id="dsn-hero-parallax-img" data-dsn-ajax="img">
-                        <div class="bg-image cover-bg" data-overlay="0"
-                            data-image-src="assets/img/project/project3/1.png"></div>
-                    </div>
-
-                    <div class="scroll" data-dsn-animate="ajax">
-                        <span class="background"></span>
-                        <span class="triangle"></span>
-                    </div>
-                    <div class="project-title" id="dsn-hero-parallax-title">
-
-                        <div class="title-text-header">
-                            <div class="cat">
-                                <span>Audio/Video</span>
-                            </div>
-                            <span class="title-text-header-inner">
-                                <span data-dsn-animate="ajax">Les Explorations Sonores</span>
-                            </span>
-                        </div>
-
-                        <div class="sub-text-header" data-dsn-animate="ajax">
-                            <h5>De mes toutes premières créations</h5>
-                            <span>- Jusqu'à aujourd'hui</span>
-                        </div>
-                    </div>
-
-                    <div class="project-page__inner">
-                        <div class="h-100">
-                            <div class="row justify-content-center align-items-end h-100">
-                                <div id="descover-holder" class="col-lg-12 project-meta__content">
-                                    <div class="link">
-                                        <a target="_blank"
-                                            href="https://www.youtube.com/@PhilKlab"></a>
-                                    </div>
+                <div class="header-hero header-hero-2 listen-hero-bg">
+                    <div class="container h-100">
+                        <div class="row align-items-center h-100">
+                            <div class="col-lg-7">
+                                <div class="contenet-hero">
+                                    <span class="cat"><span>Audio &middot; Vidéo</span></span>
+                                    <h1>Écouter</h1>
+                                    <p>Je partage mes productions et performances sur YouTube, SoundCloud et bientôt Spotify — mais c'est ici que les nouvelles créations paraissent en premier.</p>
                                 </div>
                             </div>
                         </div>
@@ -203,132 +248,185 @@
 
             <div class="wrapper">
                 <div class="root-project">
-                    <div class="container intro-project section-margin">
-                        <div class="intro-text">
-                            <div class="title-cover" data-dsn-grid="move-section" data-dsn-opacity="0.1"
-                                data-dsn-duration="170%" data-dsn-move="0%">
-                                Youtube
-                            </div>
+
+                    <!-- Bloc 1 — Regarder (vidéo vedette + shorts) -->
+                    <div class="container section-margin" id="watch">
+                        <div class="intro-text text-center">
                             <div class="inner">
-                                <h2 data-dsn-animate="text">Productions et Performances Électroniques</h2>
-                                <p data-dsn-animate="up">
-                                Je partage mes productions et performances sur YouTube, SoundCloud et bientôt Spotify — mais c'est ici que les nouvelles créations paraissent en premier. 
-                                <br><br>
-                                Mon travail se déploie sur deux axes : la composition et production sur synthétiseurs et séquenceurs en studio, et les performances live en plein air avec Thunder & Silk.
-                                </p>
-                                <a class="bottom-link" data-dsn-animate="up"
-                                    href="https://www.youtube.com/@TheDopamineSynth" target="_blank">
-                                    <span></span>
-                                    <span></span>
-                                    <div class="content">
-                                        <div class="inner">
-                                            <p>VISITE MA PAGE YOUTUBE</p>
-                                        </div>
-                                    </div>
-                                </a>
+                                <h2 data-dsn-animate="text">Regarder</h2>
+                                <p data-dsn-animate="up">Performances live, extraits studio et expérimentations sonores — ça joue ici même, sans quitter la page.</p>
+                            </div>
+                        </div>
+
+                        <div class="media-block" data-dsn-grid="move-up">
+                            <div class="video-embed">
+                                <iframe src="https://www.youtube.com/embed/v6HS7Hqh8cI"
+                                    title="Phil Klab — vidéo vedette" loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div class="media-sub">Plus de vidéos</div>
+                        <div class="row shorts-row">
+                            <div class="col-lg-4 col-md-4 col-6">
+                                <div class="short-embed" data-dsn-grid="move-up">
+                                    <iframe src="https://www.youtube.com/embed/pXZfr9F0bKM"
+                                        title="Phil Klab — short 1" loading="lazy"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-6">
+                                <div class="short-embed" data-dsn-grid="move-up">
+                                    <iframe src="https://www.youtube.com/embed/oEWRRfaeMPU"
+                                        title="Phil Klab — short 2" loading="lazy"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-6">
+                                <div class="short-embed" data-dsn-grid="move-up">
+                                    <iframe src="https://www.youtube.com/embed/_AYk-2bYsfY"
+                                        title="Phil Klab — short 3" loading="lazy"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="container project-image-collage section-margin">
-                        <a href="https://youtube.com/shorts/Xcw9wKLitB0" target="_blank" rel="noopener noreferrer">
-                        <img src="https://img.youtube.com/vi/Xcw9wKLitB0/maxresdefault.jpg" alt="Phil Klab YouTube Video">
-                        </a>
-                        <a href="https://youtube.com/shorts/gdBrBy3Iiuo" target="_blank" rel="noopener noreferrer">
-                        <img src="https://img.youtube.com/vi/gdBrBy3Iiuo/maxresdefault.jpg" alt="Phil Klab YouTube Video">
-                        </a>
-                        <a href="https://youtube.com/shorts/MOy8NRoHsAU" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.youtube.com/vi/MOy8NRoHsAU/maxresdefault.jpg" alt="Phil Klab YouTube Video">
-                        </a>
-                        <a href="https://www.youtube.com/shorts/z__TcznV93E" target="_blank" rel="noopener noreferrer">
-                        <img src="https://img.youtube.com/vi/z__TcznV93E/hqdefault.jpg" alt="Phil Klab YouTube Video">
-                        </a>
-                        <a href="https://youtube.com/shorts/u-nOl2zKaJU" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.youtube.com/vi/u-nOl2zKaJU/maxresdefault.jpg" alt="Phil Klab YouTube Video">
-                        </a>
-                        <a href="https://www.youtube.com/shorts/gDG3Z1vT0Vw" target="_blank" rel="noopener noreferrer">
-                        <img src="https://img.youtube.com/vi/gDG3Z1vT0Vw/hqdefault.jpg" alt="Phil Klab YouTube Video">
-                        </a>
+                    <!-- Bloc 2 — Écouter (SoundCloud) -->
+                    <div class="container section-margin" id="listen">
+                        <div class="intro-text text-center">
+                            <div class="inner">
+                                <h2 data-dsn-animate="text">Écouter</h2>
+                                <p data-dsn-animate="up">Morceaux et démos sur SoundCloud — la playlist s'étoffe au fil des nouvelles pièces.</p>
+                            </div>
+                        </div>
+
+                        <div class="media-block sc-embed" data-dsn-grid="move-up">
+                            <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay"
+                                title="Phil Klab sur SoundCloud" loading="lazy"
+                                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2293221519&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
+                        </div>
+                        <div class="text-center media-cta">
+                            <a class="pp-link" href="https://soundcloud.com/phil-klab" target="_blank" rel="noopener noreferrer">Plus sur SoundCloud <span class="arrow" aria-hidden="true">→</span></a>
+                        </div>
                     </div>
 
-                    
-                    <div class=" box-gallery-vertical section-margin section-padding" data-dsn="color">
-                        <div class="mask-bg"></div>
-                        <div class="container">
-                            <div class="row align-items-center h-100">
-                                <div class="col-lg-6 ">
-                                    <div class="box-im" data-dsn-grid="move-up">
-                                        <img class="has-top-bottom" src="assets/img/project/project1/4.jpg" alt="Phil Klab jouant du clavier au metro Place des Arts de Montreal" loading="lazy"
-                                            data-dsn-move="20%">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-
-
-                                    <div class="box-info">
-
-                                        <div class="vertical-title">
-                                            <h2 data-dsn-animate="up">Vongt ans de scène. Un son qui s'assume</h2>
-                                        </div>
-                                        <h6 data-dsn-animate="up">Formation classique formelle, vingt ans d'expérience jazz, approche électronique live affirmée :
-                                            </h6>
-
-                                        <p data-dsn-animate="up">Phil Klab construit un son qui ne ressemble à aucun autre — du néo-classique électronique à l'electro-funk minimal, atmosphérique, saturé, groovy. Des textures denses sur des basses qui groovent, une écriture qui oscille entre la salle de concert et le dancefloor intimiste.
-                                        </p>
-
-                                        <div class="link-custom" data-dsn-animate="up">
-                                            <a class="image-zoom" href="about-fr.html" data-dsn="parallax">
-                                                <span>Clique ici pour en savoir plus</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
+                    <!-- Bloc 3 — Bande contexte -->
+                    <div class="container section-margin">
+                        <div class="intro-text text-center">
+                            <div class="inner">
+                                <h2 data-dsn-animate="text">Vingt ans de scène. Un son qui s'assume.</h2>
+                                <p data-dsn-animate="up">Formation classique formelle, vingt ans d'expérience jazz, approche électronique live affirmée : Phil Klab construit un son qui ne ressemble à aucun autre — du néo-classique électronique à l'electro-funk minimal, atmosphérique, saturé, groovy. Des textures denses sur des basses qui groovent, une écriture qui oscille entre la salle de concert et le dancefloor intimiste.</p>
+                                <a class="pp-link" data-dsn-animate="up" href="about-fr.html">À propos de Phil Klab <span class="arrow" aria-hidden="true">→</span></a>
                             </div>
                         </div>
                     </div>
+
+                </div>
 
                 <div class="next-project" data-dsn-footer="project">
                     <div id="dsn-next-parallax-img" class="bg">
                         <div class="bg-image cover-bg" data-overlay="2"
-                            data-image-src="assets/img/project/project3/1.png"></div>
+                            data-image-src="assets/img/project/project4/9.png"></div>
                     </div>
 
                     <div id="dsn-next-parallax-title" class="project-title">
-                        <a href="index-fr.html" class="effect-ajax" data-dsn-ajax="next-project">
+                        <a href="project-4-fr.html" class="effect-ajax" data-dsn-ajax="next-project">
                             <div class="title-text-header">
                                 <div class="title-text-header-inner">
-                                    <span>Retour à</span>
+                                    <span>Thunder &amp; Silk</span>
                                 </div>
                             </div>
                             <div class="sub-text-header">
-                                <h5>l'Accueil</h5>
+                                <h5>Le projet en cours</h5>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <footer>
-                    <div class="info">
-                        <div class="contact-footer">
-                            <a href="#" class="phone image-zoom email-protected" data-dsn="parallax"
-                            data-user="Contact" data-domain="Philklab.net" 
-                            onclick="revealEmail(this); return false;">Cliquez pour révéler l'email</a>
-                            <a href="https://www.femurdesign.com/theremin/" target="_blank" rel="noopener noreferrer">Amateur de Synthé ? - Clique Ici</a>
+                <footer class="footer">
+                    <div class="container">
+                        <div class="footer-links p-relative">
+                            <div class="row">
+                                <div class="col-md-3 dsn-col-footer">
+                                    <div class="footer-block">
+                                        <div class="footer-logo">
+                                            <a href="index-fr.html"><img src="assets/img/logo.png" alt="Logo Phil Klab" loading="lazy"></a>
+                                        </div>
+
+                                        <div class="footer-social">
+                                            <ul>
+                                                <li><a href="https://www.youtube.com/@PhilKlab" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+                                                <li><a href="https://soundcloud.com/phil-klab" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a></li>
+                                                <li><a href="https://www.instagram.com/phil.klab/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="https://www.facebook.com/profile.php?id=61574189264314" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="https://www.tiktok.com/@philklab" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 dsn-col-footer">
+                                    <div class="footer-block col-menu">
+                                        <h4 class="footer-title">Navigation</h4>
+                                        <nav>
+                                            <ul>
+                                                <li><a href="index-fr.html">Accueil</a></li>
+                                                <li><a href="project-3-fr.html">Écouter</a></li>
+                                                <li><a href="project-4-fr.html">Thunder &amp; Silk</a></li>
+                                                <li><a href="about-fr.html">À propos</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 dsn-col-footer">
+                                    <div class="footer-block col-newsletter">
+                                        <h4 class="footer-title">Infolettre</h4>
+                                        <p>Nouvelles sorties, dates et démos — directement dans ta boîte.</p>
+                                        <!-- Brevo (FR) — formulaire footer maison, POST natif vers un iframe caché (double opt-in) -->
+                                        <form class="footer-newsletter" id="newsletter-form"
+                                            action="https://7df3d48b.sibforms.com/serve/MUIFABwwpamD1tYxx0YehNn9TSLd7IqwWURIn9fRs5jfn0qYdpUEUm0_6vNGDmsQv96P1i2wn70Ccq8HYc2hiqqmQ863JxPHDzy4uMS_su4hvXzDlw-ZIY8JUkbQ8lLcu52N65L_NYeDpzMOsr0K9-k5coOV-uKbCkfzL2bKOi4J6fDpPDodYf6Y7QfxvLExooQBDn6eOMoVEZKkNw=="
+                                            method="POST" target="brevo-hidden-frame" data-type="subscription">
+                                            <div class="nl-field">
+                                                <input type="email" id="EMAIL" name="EMAIL" placeholder="Ton courriel" required aria-label="Ton courriel" autocomplete="email">
+                                                <button type="submit"><span>S'abonner</span></button>
+                                            </div>
+                                            <!-- Brevo honeypot : doit rester vide -->
+                                            <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <input type="hidden" name="locale" value="fr">
+                                            <p class="newsletter-msg" aria-live="polite"></p>
+                                        </form>
+                                        <iframe name="brevo-hidden-frame" title="Infolettre" style="display:none" aria-hidden="true"></iframe>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 dsn-col-footer">
+                                    <div class="footer-block col-contact">
+                                        <h4 class="footer-title">Contact</h4>
+                                        <p class="over-hidden"><a class="link-hover" href="mailto:contact@philklab.net">contact@philklab.net</a></p>
+                                        <p class="over-hidden"><a class="link-hover" href="mailto:booking@philklab.net">booking@philklab.net</a></p>
+                                        <p>Montréal, Canada</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="copyright-social">
-                            <p>© 2026 Phil Klab</p>
-                            <ul>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://on.soundcloud.com/phil-klab" target="_blank" rel="noopener noreferrer">Soundcloud</a></li>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://www.youtube.com/@PhilKlab" target="_blank" rel="noopener noreferrer">Youtube</a></li>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://www.instagram.com/phil.klab/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://www.facebook.com/profile.php?id=61574189264314" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://www.tiktok.com/@philklab?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">Tik Tok</a></li>
-                            </ul>
+
+                        <div class="copyright">
+                            <div class="text-center">
+                                <p>© 2026 Phil Klab</p>
+                                <div class="copright-text over-hidden">Conçu par <a class="link-hover"
+                                        data-hover-text="Phil Klab" href="index-fr.html">Phil Klab</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </footer>
+
             </div>
         </div>
     </main>
@@ -364,84 +462,87 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
-    <script>
-    function revealEmail(element) {
-        const user = element.getAttribute('data-user');
-        const domain = element.getAttribute('data-domain');
-        const email = user + '@' + domain;
-        
-        // Changer le texte et le lien
-        element.textContent = email;
-        element.href = 'mailto:' + email;
-        element.onclick = null; // Permettre le mailto après révélation
-    }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Ce code n'est plus nécessaire car on utilise maintenant le onclick
-        // Mais on peut le garder comme fallback pour d'autres liens email si besoin
-    });
-    </script>
+    <!-- Envoi infolettre (Brevo) — POST natif vers l'iframe caché, confirmation inline -->
     <script>
     (function () {
-    // --- tiny helper you can extend later ---
-    const pairs = {
-        'project-4.html': 'project-4-fr.html',
-        'project-1.html': 'project-1-fr.html',
-        'project-2.html': 'project-2-fr.html',
-        'project-3.html': 'project-3-fr.html'
-    };
-
-    function applyLangSwitcherFix() {
-        var p = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-        var isEN = p in pairs;
-        var isFR = Object.values(pairs).includes(p);
-        if (!isEN && !isFR) return;
-
-        var sw = document.querySelector('.language-switcher');
-        if (!sw) return;
-        var links = sw.querySelectorAll('a');
-        if (links.length < 2) return;
-
-        if (isEN) {
-        links[0].setAttribute('href', p);
-        links[1].setAttribute('href', pairs[p]);
-        } else {
-        var en = Object.keys(pairs).find(k => pairs[k] === p);
-        links[0].setAttribute('href', p);
-        links[1].setAttribute('href', en);
+        var f = document.getElementById('newsletter-form');
+        if (!f) return;
+        var frame = document.getElementsByName('brevo-hidden-frame')[0];
+        var msg = f.querySelector('.newsletter-msg');
+        var submitted = false;
+        f.addEventListener('submit', function (e) {
+            // Honeypot Brevo : si rempli, c'est un bot — on abandonne en silence.
+            var hp = f.querySelector('input[name="email_address_check"]');
+            if (hp && hp.value) { e.preventDefault(); return; }
+            submitted = true;
+            if (msg) msg.textContent = 'Envoi…';
+            // Pas de preventDefault : le POST natif part vers l'iframe caché.
+        });
+        if (frame) {
+            frame.addEventListener('load', function () {
+                if (!submitted) return; // ignore le chargement initial about:blank
+                submitted = false;
+                if (msg) msg.textContent = 'Merci — vérifie ta boîte pour confirmer.';
+                f.reset();
+            });
         }
-        // NOTE: we don't touch your 'active' classes to preserve your grey/white styling logic
-    }
-
-    // Run on initial load
-    applyLangSwitcherFix();
-
-    // Re-run on common SPA/PJAX libraries' events (any that exist will fire)
-    document.addEventListener('pjax:end', applyLangSwitcherFix, { once: false });
-    document.addEventListener('swup:contentReplaced', applyLangSwitcherFix, { once: false });
-    document.addEventListener('barba:after', applyLangSwitcherFix, { once: false });
-
-    // Fallback 1: re-apply on back/forward cache restores
-    window.addEventListener('pageshow', applyLangSwitcherFix);
-
-    // Fallback 2: observe DOM swaps if your loader doesn’t emit events
-    const mo = new MutationObserver(() => applyLangSwitcherFix());
-    mo.observe(document.body, { childList: true, subtree: true });
     })();
     </script>
+
+    <!-- Language switcher (position-based, no ids required) -->
     <script>
     (function () {
-    function kickHeader() {
-        // Nudge any "on scroll" header logic to recalc immediately
-        window.dispatchEvent(new Event('scroll'));
-    }
-    window.addEventListener('load', kickHeader);
-    window.addEventListener('pageshow', kickHeader);
-    document.addEventListener('pjax:end', kickHeader);
-    document.addEventListener('swup:contentReplaced', kickHeader);
-    document.addEventListener('barba:after', kickHeader);
+        var pairs = {
+            'index.html': 'index-fr.html',
+            'project-3.html': 'project-3-fr.html',
+            'project-4.html': 'project-4-fr.html',
+            'about.html': 'about-fr.html'
+        };
+
+        function applyLangSwitcherFix() {
+            var p = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+            var isEN = p in pairs;
+            var isFR = Object.values(pairs).includes(p);
+            if (!isEN && !isFR) return;
+
+            var sw = document.querySelector('.language-switcher');
+            if (!sw) return;
+            var links = sw.querySelectorAll('a');
+            if (links.length < 2) return;
+
+            if (isEN) {
+                links[0].setAttribute('href', p);
+                links[1].setAttribute('href', pairs[p]);
+            } else {
+                var en = Object.keys(pairs).find(function (k) { return pairs[k] === p; });
+                links[0].setAttribute('href', en);
+                links[1].setAttribute('href', p);
+            }
+        }
+
+        applyLangSwitcherFix();
+        document.addEventListener('pjax:end', applyLangSwitcherFix, { once: false });
+        document.addEventListener('swup:contentReplaced', applyLangSwitcherFix, { once: false });
+        document.addEventListener('barba:after', applyLangSwitcherFix, { once: false });
+        window.addEventListener('pageshow', applyLangSwitcherFix);
+        var mo = new MutationObserver(function () { applyLangSwitcherFix(); });
+        mo.observe(document.body, { childList: true, subtree: true });
     })();
     </script>
+
+    <!-- Nudge header recalc on load / restore -->
+    <script>
+    (function () {
+        function kickHeader() { window.dispatchEvent(new Event('scroll')); }
+        window.addEventListener('load', kickHeader);
+        window.addEventListener('pageshow', kickHeader);
+        document.addEventListener('pjax:end', kickHeader);
+        document.addEventListener('swup:contentReplaced', kickHeader);
+        document.addEventListener('barba:after', kickHeader);
+    })();
+    </script>
+
 </body>
 
 </html>

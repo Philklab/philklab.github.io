@@ -5,9 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="discrption" content="parallax one page" />
     <meta name="keyword"
-        content="Phil Klab, electronic music, electro, néo-classique, electro-funk minimal, house, ambient techno, personal, artist, portfolio, booking, festival, rave, live performance, responsive, simple" />
+        content="Phil Klab, Thunder and Silk, musique électronique, electro, néoclassique, electro-funk minimal, house, ambient techno, performance live, Montréal, compositions inédites" />
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
@@ -15,7 +14,9 @@
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
         img-src 'self' data: https:;
-        connect-src 'self' https://formspree.io https://www.google-analytics.com;
+        connect-src 'self' https://www.google-analytics.com;
+        form-action 'self' https://7df3d48b.sibforms.com;
+        frame-src https://7df3d48b.sibforms.com;
         frame-ancestors 'none';
         referrer no-referrer-when-downgrade;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -23,11 +24,13 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Cache-Control" content="max-age=604800, public">
 
-    <title>Thunder and Silk - Phil Klab</title>
-    <meta name="description" content="Premier album de Phil Klab - Néo-classique électro, Électro-funk minimal et House" />
-    <meta property="og:title" content="Thunder and Silk - Phil Klab" />
-    <meta property="og:description" content="Nouveau projet de Phil Klab - Été et Automne 2026" />
-    <meta property="og:image" content="https://philklab.com/assets/img/og-image.jpg" />
+    <title>Thunder &amp; Silk — Phil Klab</title>
+    <meta name="description" content="Thunder &amp; Silk — le projet en cours de Phil Klab. Compositions inédites qui traversent le néo-classique électronique, l'ambient techno, la house minimale et l'electro-funk. D'abord sur scène, puis en studio. Montréal, 2026." />
+    <meta property="og:title" content="Thunder &amp; Silk — Phil Klab" />
+    <meta property="og:description" content="Thunder &amp; Silk — le projet en cours de Phil Klab. Compositions inédites qui traversent le néo-classique électronique, l'ambient techno, la house minimale et l'electro-funk. D'abord sur scène, puis en studio. Montréal, 2026." />
+    <meta property="og:image" content="https://philklab.net/assets/img/og-image.jpg" />
+    <meta property="og:url" content="https://philklab.net/project-4-fr.html" />
+    <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_CA" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -54,147 +57,167 @@
     <!-- custom styles (optional) -->
     <link href="assets/css/plugins.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- Page-specific styling (self-contained) -->
+    <style>
+        .footer-newsletter { margin-top: 10px; }
+        .footer-newsletter .nl-field { display: flex; flex-wrap: wrap; gap: 8px; }
+        .footer-newsletter input[type="email"] {
+            flex: 1 1 auto; min-width: 0; padding: 10px 12px;
+            background: transparent; border: 1px solid currentColor; color: inherit;
+            border-radius: 2px; font: inherit;
+        }
+        .footer-newsletter button {
+            flex: 0 0 auto; padding: 10px 16px; cursor: pointer;
+            background: currentColor; border: 1px solid currentColor; border-radius: 2px;
+            font: inherit; text-transform: uppercase; letter-spacing: .05em;
+        }
+        .footer-newsletter button span { color: #000; mix-blend-mode: difference; }
+        .footer-newsletter .newsletter-msg { margin: 8px 0 0; font-size: .85em; min-height: 1.1em; }
+
+        /* Clear, self-contained clickable affordances (theme-agnostic) */
+        .pp-link {
+            display: inline-flex; align-items: center; gap: .4em;
+            font-weight: 700; text-decoration: underline; text-underline-offset: 3px;
+            transition: gap .2s ease;
+        }
+        .pp-link:hover { gap: .7em; }
+
+        .btn-cta {
+            display: inline-flex; align-items: center; gap: .55em;
+            margin-top: 22px; padding: 14px 28px;
+            border: 2px solid currentColor; border-radius: 40px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
+            font-size: .8em; line-height: 1; text-decoration: none;
+            transition: gap .2s ease, opacity .2s ease;
+        }
+        .btn-cta:hover { gap: 1em; opacity: .72; }
+        .btn-cta .arrow, .pp-link .arrow { transition: transform .2s ease; }
+
+        /* Thunder & Silk hero: full background image */
+        .ts-hero-bg {
+            position: relative;
+            background: url('assets/img/project/project4/9.png') center / cover no-repeat;
+        }
+        .ts-hero-bg::before {
+            content: ''; position: absolute; inset: 0; z-index: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.32));
+        }
+        .ts-hero-bg > .container { position: relative; z-index: 1; }
+        .ts-hero-bg .contenet-hero,
+        .ts-hero-bg .contenet-hero h1,
+        .ts-hero-bg .contenet-hero p,
+        .ts-hero-bg .contenet-hero .cat span { color: #fff; }
+    </style>
+
 </head>
 
-
 <body class="hamburger-menu dsn-effect-scroll dsn-ajax" data-dsn-mousemove="true">
+
     <div class="preloader">
         <div class="preloader-after"></div>
         <div class="preloader-before"></div>
         <div class="preloader-block">
             <div class="title">PHIL KLAB</div>
             <div class="percent">0</div>
-            <div class="loading">Chargement...</div>
+            <div class="loading">loading...</div>
         </div>
         <div class="preloader-bar">
             <div class="preloader-progress"></div>
         </div>
     </div>
 
-        <!-- Nav Bar -->
-        <div class="dsn-nav-bar">
-            <div class="site-header">
-                <div class="extend-container">
-                    <div class="inner-header">
-                        <div class="main-logo">
-                            <a href="index-fr.html">
-                                <img class="dark-logo" src="assets/img/logo-dark.png" alt="Logo de Phil Klab - Version sombre" />
-                                <img class="light-logo" src="assets/img/logo.png" alt="Logo de Phil Klab - Version claire" />
-                            </a>
-                        </div>
-                    </div>
-                    <nav class=" accent-menu main-navigation">
-                        <ul class="extend-container">
-                            <li>
-                                <a href="index-fr.html">Accueil</a>
-                            </li>
-                            <li>
-                                <a href="about-fr.html">À Propos</a>
-                            </li>
-                            <li>
-                                <a href="project-3-fr.html">Musique</a>
-                            </li>
-                            <li class="custom-drop-down">
-                                <a href="#">Projets</a>
-                                <ul>
-                                    <li><a href="project-4-fr.html">Phil Klab - Thunder and Silk</a></li>
-                                    <li><a href="project-1-fr.html">The Dopamine Synth</a></li>
-                                    <li><a href="project-2-fr.html">Improvisation Électro "Live"</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact-fr.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="header-top header-top-hamburger">
-                <div class="header-container">
-                    <div class="logo main-logo">
+    <!-- Nav Bar -->
+    <div class="dsn-nav-bar">
+        <div class="site-header">
+            <div class="extend-container">
+                <div class="inner-header">
+                    <div class="main-logo">
                         <a href="index-fr.html">
-                            <img class="dark-logo" src="assets/img/logo-dark.png" alt="Logo de Phil Klab - Version sombre" />
-                            <img class="light-logo" src="assets/img/logo.png" alt="Logo de Phil Klab - Version claire" />
+                            <img class="dark-logo" src="assets/img/logo-dark.png" alt="Logo of Phil Klab - Dark Version"/>
+                            <img class="light-logo" src="assets/img/logo.png" alt="Logo of Phil Klab - Light Version"/>
                         </a>
                     </div>
-                    <div class="language-switcher">
-                        <a href="project-4-fr.html">FR</a> / <a href="project-4.html" class="active">EN</a>
+                </div>
+                <nav class=" accent-menu main-navigation">
+                    <ul class="extend-container">
+                        <li>
+                            <a href="index-fr.html">Accueil</a>
+                        </li>
+                        <li>
+                            <a href="project-3-fr.html">Écouter</a>
+                        </li>
+                        <li>
+                            <a href="project-4-fr.html">Thunder &amp; Silk</a>
+                        </li>
+                        <li>
+                            <a href="about-fr.html">À propos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="header-top header-top-hamburger">
+            <div class="header-container">
+                <div class="logo main-logo">
+                    <a href="index-fr.html">
+                        <img class="dark-logo" src="assets/img/logo-dark.png" alt="Logo of Phil Klab - Dark Version"/>
+                        <img class="light-logo" src="assets/img/logo.png" alt="Logo of Phil Klab - Light Version"/>
+                    </a>
+                </div>
+                <div class="language-switcher">
+                    <a href="project-4.html">EN</a> / <a href="project-4-fr.html" class="active">FR</a>
+                </div>
+                <div class="menu-icon" data-dsn="parallax" data-dsn-move="5">
+                    <div class="icon-m">
+                        <i class="menu-icon-close fas fa-times"></i>
+                        <span class="menu-icon__line menu-icon__line-left"></span>
+                        <span class="menu-icon__line"></span>
+                        <span class="menu-icon__line menu-icon__line-right"></span>
                     </div>
-                    <div class="menu-icon" data-dsn="parallax" data-dsn-move="5">
-                        <div class="icon-m">
-                            <i class="menu-icon-close fas fa-times"></i>
-                            <span class="menu-icon__line menu-icon__line-left"></span>
-                            <span class="menu-icon__line"></span>
-                            <span class="menu-icon__line menu-icon__line-right"></span>
-                        </div>
 
-                        <div class="text-menu">
-                            <div class="text-button">Menu</div>
-                            <div class="text-open">Ouvrir</div>
-                            <div class="text-close">Fermer</div>
+                    <div class="text-menu">
+                        <div class="text-button">Menu</div>
+                        <div class="text-open">Open</div>
+                        <div class="text-close">Close</div>
+                    </div>
+                </div>
+
+                <div class="nav">
+                    <div class="inner">
+                        <div class="nav__content">
+
                         </div>
                     </div>
-
-                    <div class="nav">
-                        <div class="inner">
-                            <div class="nav__content">
-
-                            </div>
-                        </div>
+                </div>
+                <div class="nav-content">
+                    <div class="inner-content">
+                        <address class="v-middle">
+                            <span>Phil Klab</span>
+                            <span>Montréal, Canada</span>
+                            <span><a href="mailto:contact@philklab.net">contact@philklab.net</a></span>
+                        </address>
                     </div>
-                    <div class="nav-content">
-                        <div class="inner-content">
-                            <address class="v-middle">
-                                <span>Phil Klab</span>
-                                <span>Montréal, Canada</span>                           
-                                <span><a href="mailto:contact@philklab.net">Contact@philklab.net</a></span>
-                            </address>
-                        </div>
 
-                    </div>
                 </div>
             </div>
         </div>
-        <!-- End Nav Bar -->
+    </div>
+    <!-- End Nav Bar -->
 
 
     <main class="main-root">
         <div id="dsn-scrollbar">
             <header>
-                <div class="fullscreen-slider">
-                    <div class="swiper-container" data-dsn-header="project">
-                        <div id="descover-holder" class="descover-holder">
-                            <span class="letter">Faire Défiler Pour</span>
-                            <div class="scroll-down__line">
-                                <span></span>
-                            </div>
-                            <span class="letter">Découvrir</span>
-                        </div>
-                        <div class="swiper-wrapper">
-                            <div class="slider-item swiper-slide">
-                                <div class="bg parallax-move-element" id="dsn-hero-parallax-img">
-                                    <div class="bg-image cover-bg" data-overlay="0" data-dsn-ajax="img"
-                                        data-image-src="assets/img/project/project4/9.png"></div>
-                                </div>
-
-                                <div class="container h-100">
-                                    <div id="dsn-hero-parallax-title" class="content-inner h-100">
-                                        <div class="cat">
-                                            <span>Phil Klab - Thunder and Silk</span>
-                                        </div>
-
-                                        <div class="content">
-                                            <div class="slider-header slider-header-top">
-                                                <h1 data-dsn-animate="ajax">PHIL KLAB</h1>
-                                            </div>
-                                            <div id="dsn-hero-parallax-fill-title"
-                                                class="slider-header slider-header-bottom">
-                                                <h1 data-dsn-animate="ajax">PHIL KLAB</h1>
-                                            </div>
-                                        </div>
-                                        <div class="slider-descr">
-                                            <h5 data-dsn-animate="ajax"><strong>Montréal</strong> - Été et Automne 2026
-                                            </h5>
-                                        </div>
-                                    </div>
+                <div class="header-hero header-hero-2 ts-hero-bg">
+                    <div class="container h-100">
+                        <div class="row align-items-center h-100">
+                            <div class="col-lg-8">
+                                <div class="contenet-hero">
+                                    <span class="cat"><span>Compositions inédites &middot; Synthétiseurs &amp; Séquenceurs &middot; Montréal &middot; 2026</span></span>
+                                    <h1>Thunder &amp; Silk</h1>
+                                    <p>Néo-classique électronique, ambient techno, house minimale et electro-funk saturé. D'abord sur scène, puis en studio.</p>
+                                    <a class="btn-cta" href="project-3-fr.html">Écouter <span class="arrow" aria-hidden="true">→</span></a>
                                 </div>
                             </div>
                         </div>
@@ -204,144 +227,142 @@
 
             <div class="wrapper">
                 <div class="root-project">
+
+                    <!-- Bloc 1 -->
                     <div class="container intro-project section-margin">
                         <div class="intro-text text-center">
-                            <div class="title-cover" data-dsn-grid="move-section" data-dsn-opacity="0.1"
-                                data-dsn-duration="170%" data-dsn-move="0%">
-                                
-                            </div>
                             <div class="inner">
-                                <h2 data-dsn-animate="text">Un premier album,</h2>
-                                <h2 data-dsn-animate="text">Un territoire qui s'invente.</h2>
-                                <p data-dsn-animate="up">Thunder & Silk est un territoire à part entière — un espace sonore avec sa propre gravité. On y entre par un rythme. On s'y perd dans une texture. On n'en revient pas tout à fait.
-                                </p>
+                                <h2 data-dsn-animate="text">Un projet en cours. Un territoire propre.</h2>
+                                <p data-dsn-animate="up">Thunder &amp; Silk est le projet en cours de Phil Klab — un ensemble de compositions inédites qui traversent le néo-classique électronique, l'ambient techno, la house minimale et l'electro-funk saturé. Des pièces conçues pour faire bouger les corps autant que les esprits. D'abord sur scène, puis en studio.</p>
+                                <p data-dsn-animate="up">Du piano qui flotte sur un kick qui pulse. Des textures denses sur des basses qui groovent. Un spectre large — contemplatif à une extrémité, physique et saturé à l'autre — mais un fil conducteur constant : l'espace comme architecture, le groove comme langage.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="box-seat">
-                        <div class="dsn-v-text">
-                            <div class="container-fluid">
-                                <div class="box-middle-text">
-                                    <a href="https://soundcloud.com/phil-klab/light-pressure-demo?si=be05f6fd2c9342e1a646b3f9afffeb43&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" class="vid" target="_blank" rel="noopener noreferrer">
-                                        <div class="play-button">
-                                            <div class="play-btn">
-                                                <i class="fas fa-play"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="inner-img" data-dsn-grid="move-up">
-                                    <img data-dsn-scale="1" src="assets/img/project/project4/2.png" alt="Image Phil Klab - Thunder and Silk Album" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container intro-project section-p section-margin">
+                    <!-- Bloc 2 -->
+                    <div class="container intro-project section-margin">
                         <div class="intro-text text-center">
-                            <div class="title-cover" data-dsn-grid="move-section" data-dsn-opacity="0.1"
-                                data-dsn-duration="170%" data-dsn-move="0%">Thunder and Silk
-                            </div>
                             <div class="inner">
-                                <h2 data-dsn-animate="text">Thunder & Silk ne choisit pas un genre — il en traverse plusieurs, avec cohérence. Chaque pièce explore un angle différent du spectre : la retenue du piano dans un bain de reverb, la tension d'un pad qui monte sur un kick quatre temps, l'énergie d'une basse funk qui prend le contrôle.
-                                    Ce qui reste constant : la densité. La respiration. Et quelque part dans chaque pièce, le moment où tout bascule.
-
-                                </h2>
+                                <h2 data-dsn-animate="text">Du tonnerre et de la soie — dans le même souffle.</h2>
+                                <p data-dsn-animate="up">Thunder &amp; Silk ne choisit pas un genre — il en traverse plusieurs, avec cohérence. Chaque pièce explore un angle différent du spectre : la retenue du piano dans un bain de reverb, la tension d'un pad qui monte sur un kick quatre temps, l'énergie d'une basse funk qui prend le contrôle.</p>
+                                <p data-dsn-animate="up">Ce qui reste constant : la densité. La respiration. Et quelque part dans chaque pièce, le moment où tout bascule.</p>
                             </div>
                         </div>
                     </div>
 
-                <!--<div class="container-fluid slider-project section-margin">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="assets/img/project/project1/6.jpg" alt="Phil Klab jouant du synthetiseur a Montreal" loading="lazy">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="assets/img/project/project1/4.jpg" alt="Phil Klab jouant de la musique electro dans une station de metro de Montreal" loading="lazy">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="assets/img/project/project1/7.jpg" alt="Image d'un loopstation et d'un synthetiseur" loading="lazy">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="assets/img/project/project1/2.jpg" alt="Image d'un synthetiseur joue par Phil Klab" loading="lazy">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="assets/img/project/project1/8.jpg" alt="Image de Phil Klab jouant en avant de vitraux colores" loading="lazy">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="assets/img/project/project1/9.jpg" alt="" loading="lazy">
-                                </div>
-                                
-                                <div class="swiper-slide">
-                                    <img src="assets/img/project/project1/10.jpg" alt="PHoto de Phil Klab jouant de l'electro dans a la statin de metro Place des Arts" loading="lazy">
-                                </div>
-                        </div>
-
-                        <div class="swiper-pagination"></div>
-
-                        <div class="slider-button-prev">
-                            <div>
-                                <svg viewBox="0 0 40 40">
-                                    <polyline class="path" points="25.4 22.55 20 17.15 14.6 22.55"></polyline>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="slider-button-next">
-                            <div>
-                                <svg viewBox="0 0 40 40">
-                                    <polyline class="path" points="14.6 17.45 20 22.85 25.4 17.45"></polyline>
-                                </svg>
+                    <!-- Bloc 3 — Live -->
+                    <div class="container intro-project section-margin">
+                        <div class="intro-text text-center">
+                            <div class="inner">
+                                <h2 data-dsn-animate="text">Live — cet automne</h2>
+                                <p data-dsn-animate="up">Les pièces de Thunder &amp; Silk sont d'abord conçues pour la scène : des performances en plein air à Montréal cet automne, dans une configuration entièrement autonome — synthétiseurs, séquenceurs, batterie portative. Les sets vont du contemplatif au physique et saturé, selon le moment et le lieu.</p>
+                                <p data-dsn-animate="up">Dates et lieux précis annoncés en temps et lieu — par l'infolettre et les réseaux.</p>
+                                <a class="pp-link" data-dsn-animate="up" href="project-3-fr.html">Entendre la direction <span class="arrow" aria-hidden="true">→</span></a>
                             </div>
                         </div>
                     </div>
 
-                </div> -->
+                </div>
+
                 <div class="next-project" data-dsn-footer="project">
                     <div id="dsn-next-parallax-img" class="bg">
-                        <div class="bg-image cover-bg" data-overlay="0"
-                            data-image-src="assets/img/project/project3/1.png"></div>
+                        <div class="bg-image cover-bg" data-overlay="2"
+                            data-image-src="assets/img/project/bio_04.jpg"></div>
                     </div>
 
                     <div id="dsn-next-parallax-title" class="project-title">
-                        <a href="project-3-fr.html" class="effect-ajax" data-dsn-ajax="next-project">
+                        <a href="about-fr.html" class="effect-ajax" data-dsn-ajax="next-project">
                             <div class="title-text-header">
                                 <div class="title-text-header-inner">
-                                    <span>Live Performance</span>
+                                    <span>À propos</span>
                                 </div>
                             </div>
                             <div class="sub-text-header">
-                                <h5>Prochaine Section</h5>
+                                <h5>Bio &amp; contact</h5>
                             </div>
                         </a>
                     </div>
                 </div>
-                <footer>
-                    <div class="info">
-                        <div class="contact-footer">
-                            <a href="#" class="phone image-zoom email-protected" data-dsn="parallax"
-                            data-user="Contact" data-domain="Philklab.net" 
-                            onclick="revealEmail(this); return false;">Cliquez pour révéler l'email</a>
-                            <a href="https://drumbit.app/" target="_blank" rel="noopener noreferrer">Univers Auditif Mystérieux - Clique Ici</a>
+
+                <footer class="footer">
+                    <div class="container">
+                        <div class="footer-links p-relative">
+                            <div class="row">
+                                <div class="col-md-3 dsn-col-footer">
+                                    <div class="footer-block">
+                                        <div class="footer-logo">
+                                            <a href="index-fr.html"><img src="assets/img/logo.png" alt="Logo Phil Klab" loading="lazy"></a>
+                                        </div>
+
+                                        <div class="footer-social">
+                                            <ul>
+                                                <li><a href="https://www.youtube.com/@PhilKlab" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+                                                <li><a href="https://soundcloud.com/phil-klab" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a></li>
+                                                <li><a href="https://www.instagram.com/phil.klab/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="https://www.facebook.com/profile.php?id=61574189264314" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="https://www.tiktok.com/@philklab" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 dsn-col-footer">
+                                    <div class="footer-block col-menu">
+                                        <h4 class="footer-title">Navigation</h4>
+                                        <nav>
+                                            <ul>
+                                                <li><a href="index-fr.html">Accueil</a></li>
+                                                <li><a href="project-3-fr.html">Écouter</a></li>
+                                                <li><a href="project-4-fr.html">Thunder &amp; Silk</a></li>
+                                                <li><a href="about-fr.html">À propos</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 dsn-col-footer">
+                                    <div class="footer-block col-newsletter">
+                                        <h4 class="footer-title">Infolettre</h4>
+                                        <p>Nouvelles sorties, dates et démos — directement dans ta boîte.</p>
+                                        <!-- Brevo (FR) — formulaire footer maison, POST natif vers un iframe caché (double opt-in) -->
+                                        <form class="footer-newsletter" id="newsletter-form"
+                                            action="https://7df3d48b.sibforms.com/serve/MUIFABwwpamD1tYxx0YehNn9TSLd7IqwWURIn9fRs5jfn0qYdpUEUm0_6vNGDmsQv96P1i2wn70Ccq8HYc2hiqqmQ863JxPHDzy4uMS_su4hvXzDlw-ZIY8JUkbQ8lLcu52N65L_NYeDpzMOsr0K9-k5coOV-uKbCkfzL2bKOi4J6fDpPDodYf6Y7QfxvLExooQBDn6eOMoVEZKkNw=="
+                                            method="POST" target="brevo-hidden-frame" data-type="subscription">
+                                            <div class="nl-field">
+                                                <input type="email" id="EMAIL" name="EMAIL" placeholder="Ton courriel" required aria-label="Ton courriel" autocomplete="email">
+                                                <button type="submit"><span>S'abonner</span></button>
+                                            </div>
+                                            <!-- Brevo honeypot : doit rester vide -->
+                                            <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <input type="hidden" name="locale" value="fr">
+                                            <p class="newsletter-msg" aria-live="polite"></p>
+                                        </form>
+                                        <iframe name="brevo-hidden-frame" title="Infolettre" style="display:none" aria-hidden="true"></iframe>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 dsn-col-footer">
+                                    <div class="footer-block col-contact">
+                                        <h4 class="footer-title">Contact</h4>
+                                        <p class="over-hidden"><a class="link-hover" href="mailto:contact@philklab.net">contact@philklab.net</a></p>
+                                        <p class="over-hidden"><a class="link-hover" href="mailto:booking@philklab.net">booking@philklab.net</a></p>
+                                        <p>Montréal, Canada</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="copyright-social">
-                            <p>© 2026 Phil Klab</p>
-                            <ul>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://on.soundcloud.com/phil-klab" target="_blank" rel="noopener noreferrer">Soundcloud</a></li>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://www.youtube.com/@PhilKlab" target="_blank" rel="noopener noreferrer">Youtube</a></li>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://www.instagram.com/phil.klab/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://www.facebook.com/profile.php?id=61574189264314" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                                <li class="image-zoom" data-dsn="parallax"><a href="https://www.tiktok.com/@philklab?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">Tik Tok</a></li>
-                            </ul>
+
+                        <div class="copyright">
+                            <div class="text-center">
+                                <p>© 2026 Phil Klab</p>
+                                <div class="copright-text over-hidden">Conçu par <a class="link-hover"
+                                        data-hover-text="Phil Klab" href="index-fr.html">Phil Klab</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </footer>
+
             </div>
         </div>
     </main>
@@ -356,15 +377,16 @@
     </div>
     <!-- // Wait Loader -->
 
+
     <!-- cursor -->
     <div class="cursor">
 
         <div class="cursor-helper cursor-view">
-            <span>VOIR</span>
+            <span>VIEW</span>
         </div>
 
         <div class="cursor-helper cursor-close">
-            <span>Fermer</span>
+            <span>Close</span>
         </div>
 
         <div class="cursor-helper cursor-link"></div>
@@ -376,84 +398,87 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
-    <script>
-    function revealEmail(element) {
-        const user = element.getAttribute('data-user');
-        const domain = element.getAttribute('data-domain');
-        const email = user + '@' + domain;
-        
-        // Changer le texte et le lien
-        element.textContent = email;
-        element.href = 'mailto:' + email;
-        element.onclick = null; // Permettre le mailto après révélation
-    }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Ce code n'est plus nécessaire car on utilise maintenant le onclick
-        // Mais on peut le garder comme fallback pour d'autres liens email si besoin
-    });
-    </script>
+    <!-- Envoi infolettre (Brevo) — POST natif vers l'iframe caché, confirmation inline -->
     <script>
     (function () {
-    // --- tiny helper you can extend later ---
-    const pairs = {
-        'project-4.html': 'project-4-fr.html',
-        'project-1.html': 'project-1-fr.html',
-        'project-2.html': 'project-2-fr.html',
-        'project-3.html': 'project-3-fr.html'
-    };
-
-    function applyLangSwitcherFix() {
-        var p = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-        var isEN = p in pairs;
-        var isFR = Object.values(pairs).includes(p);
-        if (!isEN && !isFR) return;
-
-        var sw = document.querySelector('.language-switcher');
-        if (!sw) return;
-        var links = sw.querySelectorAll('a');
-        if (links.length < 2) return;
-
-        if (isEN) {
-        links[0].setAttribute('href', p);
-        links[1].setAttribute('href', pairs[p]);
-        } else {
-        var en = Object.keys(pairs).find(k => pairs[k] === p);
-        links[0].setAttribute('href', p);
-        links[1].setAttribute('href', en);
+        var f = document.getElementById('newsletter-form');
+        if (!f) return;
+        var frame = document.getElementsByName('brevo-hidden-frame')[0];
+        var msg = f.querySelector('.newsletter-msg');
+        var submitted = false;
+        f.addEventListener('submit', function (e) {
+            // Honeypot Brevo : si rempli, c'est un bot — on abandonne en silence.
+            var hp = f.querySelector('input[name="email_address_check"]');
+            if (hp && hp.value) { e.preventDefault(); return; }
+            submitted = true;
+            if (msg) msg.textContent = 'Envoi…';
+            // Pas de preventDefault : le POST natif part vers l'iframe caché.
+        });
+        if (frame) {
+            frame.addEventListener('load', function () {
+                if (!submitted) return; // ignore le chargement initial about:blank
+                submitted = false;
+                if (msg) msg.textContent = 'Merci — vérifie ta boîte pour confirmer.';
+                f.reset();
+            });
         }
-        // NOTE: we don't touch your 'active' classes to preserve your grey/white styling logic
-    }
-
-    // Run on initial load
-    applyLangSwitcherFix();
-
-    // Re-run on common SPA/PJAX libraries' events (any that exist will fire)
-    document.addEventListener('pjax:end', applyLangSwitcherFix, { once: false });
-    document.addEventListener('swup:contentReplaced', applyLangSwitcherFix, { once: false });
-    document.addEventListener('barba:after', applyLangSwitcherFix, { once: false });
-
-    // Fallback 1: re-apply on back/forward cache restores
-    window.addEventListener('pageshow', applyLangSwitcherFix);
-
-    // Fallback 2: observe DOM swaps if your loader doesn’t emit events
-    const mo = new MutationObserver(() => applyLangSwitcherFix());
-    mo.observe(document.body, { childList: true, subtree: true });
     })();
     </script>
+
+    <!-- Language switcher (position-based, no ids required) -->
     <script>
     (function () {
-    function kickHeader() {
-        // Nudge any "on scroll" header logic to recalc immediately
-        window.dispatchEvent(new Event('scroll'));
-    }
-    window.addEventListener('load', kickHeader);
-    window.addEventListener('pageshow', kickHeader);
-    document.addEventListener('pjax:end', kickHeader);
-    document.addEventListener('swup:contentReplaced', kickHeader);
-    document.addEventListener('barba:after', kickHeader);
+        var pairs = {
+            'index.html': 'index-fr.html',
+            'project-3.html': 'project-3-fr.html',
+            'project-4.html': 'project-4-fr.html',
+            'about.html': 'about-fr.html'
+        };
+
+        function applyLangSwitcherFix() {
+            var p = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+            var isEN = p in pairs;
+            var isFR = Object.values(pairs).includes(p);
+            if (!isEN && !isFR) return;
+
+            var sw = document.querySelector('.language-switcher');
+            if (!sw) return;
+            var links = sw.querySelectorAll('a');
+            if (links.length < 2) return;
+
+            if (isEN) {
+                links[0].setAttribute('href', p);
+                links[1].setAttribute('href', pairs[p]);
+            } else {
+                var en = Object.keys(pairs).find(function (k) { return pairs[k] === p; });
+                links[0].setAttribute('href', en);
+                links[1].setAttribute('href', p);
+            }
+        }
+
+        applyLangSwitcherFix();
+        document.addEventListener('pjax:end', applyLangSwitcherFix, { once: false });
+        document.addEventListener('swup:contentReplaced', applyLangSwitcherFix, { once: false });
+        document.addEventListener('barba:after', applyLangSwitcherFix, { once: false });
+        window.addEventListener('pageshow', applyLangSwitcherFix);
+        var mo = new MutationObserver(function () { applyLangSwitcherFix(); });
+        mo.observe(document.body, { childList: true, subtree: true });
     })();
     </script>
+
+    <!-- Nudge header recalc on load / restore -->
+    <script>
+    (function () {
+        function kickHeader() { window.dispatchEvent(new Event('scroll')); }
+        window.addEventListener('load', kickHeader);
+        window.addEventListener('pageshow', kickHeader);
+        document.addEventListener('pjax:end', kickHeader);
+        document.addEventListener('swup:contentReplaced', kickHeader);
+        document.addEventListener('barba:after', kickHeader);
+    })();
+    </script>
+
 </body>
 
 </html>
