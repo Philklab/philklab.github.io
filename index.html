@@ -14,7 +14,9 @@
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
         img-src 'self' data: https:;
-        connect-src 'self' https://formspree.io https://www.google-analytics.com;
+        connect-src 'self' https://www.google-analytics.com;
+        form-action 'self' https://7df3d48b.sibforms.com;
+        frame-src https://7df3d48b.sibforms.com;
         frame-ancestors 'none';
         referrer no-referrer-when-downgrade;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -103,6 +105,21 @@
         }
         .btn-cta:hover { gap: 1em; opacity: .72; }
         .btn-cta .arrow, .pp-link .arrow { transition: transform .2s ease; }
+
+        /* Home hero: full background image (same as the old Thunder & Silk page) */
+        .home-hero-bg {
+            position: relative;
+            background: url('assets/img/project/project4/9.png') center / cover no-repeat;
+        }
+        .home-hero-bg::before {
+            content: ''; position: absolute; inset: 0; z-index: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,.7), rgba(0,0,0,.3));
+        }
+        .home-hero-bg > .container { position: relative; z-index: 1; }
+        .home-hero-bg .contenet-hero,
+        .home-hero-bg .contenet-hero h1,
+        .home-hero-bg .contenet-hero p,
+        .home-hero-bg .contenet-hero .cat span { color: #fff; }
     </style>
 
 </head>
@@ -204,7 +221,7 @@
     <main class="main-root">
         <div id="dsn-scrollbar">
             <header>
-                <div class="header-hero header-hero-2 ">
+                <div class="header-hero header-hero-2 home-hero-bg">
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
                             <div class="col-lg-7">
@@ -215,12 +232,6 @@
                                         <br><br>Outdoor shows this fall, studio recordings this winter, then on streaming.
                                     </p>
                                     <a class="btn-cta" href="project-3.html">Listen <span class="arrow" aria-hidden="true">→</span></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 text-center">
-                                <div class="header-image">
-                                    <!-- TODO Phil: set the Thunder & Silk hero image (placeholder path) -->
-                                    <img src="assets/img/project/project4/1.jpg" alt="Phil Klab — Thunder & Silk" width="500" height="300" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
                                 </div>
                             </div>
                         </div>
@@ -234,10 +245,6 @@
                     <!-- Block 1 — Thunder & Silk preview -->
                     <div class="container intro-project section-margin">
                         <div class="intro-text text-center">
-                            <div class="title-cover" data-dsn-grid="move-section" data-dsn-opacity="0.1"
-                                data-dsn-duration="170%" data-dsn-move="0%">
-                                Thunder &amp; Silk
-                            </div>
                             <div class="inner">
                                 <h2 data-dsn-animate="text">A project in progress. A territory of its own.</h2>
                                 <p data-dsn-animate="up">Thunder &amp; Silk is Phil Klab's current project — original compositions moving through neo-classical electronic, ambient techno, minimal house and saturated electro-funk. Pieces built to move bodies as much as minds. On stage first, then in the studio.</p>
@@ -348,17 +355,20 @@
                                     <div class="footer-block col-newsletter">
                                         <h4 class="footer-title">Newsletter</h4>
                                         <p>New releases, dates and demos — straight to your inbox.</p>
-                                        <!-- TODO Phil: replace YOUR_NEWSLETTER_ID with your Formspree endpoint -->
+                                        <!-- Brevo (EN) — custom footer form, native POST into a hidden iframe (double opt-in) -->
                                         <form class="footer-newsletter" id="newsletter-form"
-                                            action="https://formspree.io/f/YOUR_NEWSLETTER_ID" method="POST">
+                                            action="https://7df3d48b.sibforms.com/serve/MUIFAMM3MmB3fSaMWQ6FXSyAfyGw_EKBbjIJcLGkmweGeGjcgkekuwnZ1HdpizUTJrpNn01s_ukLPr1S5zR_VsM3XcE3VAYclq-WD7PhU-513bG53cKtlmsDsV1sJGB9Pi2Pgbng92awLqr-ffldq3kP8fwXC2wes-2Gg_AsOE62mXd9ue-JETojgjnMknSrMxrY4UK7Zm_MWeaqEQ=="
+                                            method="POST" target="brevo-hidden-frame" data-type="subscription">
                                             <div class="nl-field">
-                                                <input type="email" name="email" placeholder="Your email" required aria-label="Your email">
+                                                <input type="email" id="EMAIL" name="EMAIL" placeholder="Your email" required aria-label="Your email" autocomplete="email">
                                                 <button type="submit"><span>Subscribe</span></button>
                                             </div>
-                                            <input type="hidden" name="_subject" value="New newsletter signup">
-                                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                                            <!-- Brevo honeypot: must stay empty -->
+                                            <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <input type="hidden" name="locale" value="en">
                                             <p class="newsletter-msg" aria-live="polite"></p>
                                         </form>
+                                        <iframe name="brevo-hidden-frame" title="Newsletter" style="display:none" aria-hidden="true"></iframe>
                                     </div>
                                 </div>
 
@@ -420,29 +430,30 @@
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
 
-    <!-- Newsletter AJAX submit (Formspree) -->
+    <!-- Newsletter submit (Brevo) — native POST into hidden iframe, inline confirmation -->
     <script>
     (function () {
         var f = document.getElementById('newsletter-form');
         if (!f) return;
+        var frame = document.getElementsByName('brevo-hidden-frame')[0];
+        var msg = f.querySelector('.newsletter-msg');
+        var submitted = false;
         f.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var msg = f.querySelector('.newsletter-msg');
-            fetch(f.action, {
-                method: 'POST',
-                body: new FormData(f),
-                headers: { 'Accept': 'application/json' }
-            }).then(function (r) {
-                if (r.ok) {
-                    f.reset();
-                    if (msg) msg.textContent = 'Thanks — check your inbox to confirm.';
-                } else {
-                    if (msg) msg.textContent = 'Something went wrong. Please try again.';
-                }
-            }).catch(function () {
-                if (msg) msg.textContent = 'Network error. Please try again.';
-            });
+            // Brevo honeypot: if filled, it's a bot — drop silently.
+            var hp = f.querySelector('input[name="email_address_check"]');
+            if (hp && hp.value) { e.preventDefault(); return; }
+            submitted = true;
+            if (msg) msg.textContent = 'Sending…';
+            // No preventDefault: the native POST goes to the hidden iframe.
         });
+        if (frame) {
+            frame.addEventListener('load', function () {
+                if (!submitted) return; // ignore the initial about:blank load
+                submitted = false;
+                if (msg) msg.textContent = 'Thanks — check your inbox to confirm.';
+                f.reset();
+            });
+        }
     })();
     </script>
 

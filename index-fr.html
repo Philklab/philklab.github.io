@@ -14,7 +14,9 @@
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
         img-src 'self' data: https:;
-        connect-src 'self' https://formspree.io https://www.google-analytics.com;
+        connect-src 'self' https://www.google-analytics.com;
+        form-action 'self' https://7df3d48b.sibforms.com;
+        frame-src https://7df3d48b.sibforms.com;
         frame-ancestors 'none';
         referrer no-referrer-when-downgrade;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -103,6 +105,21 @@
         }
         .btn-cta:hover { gap: 1em; opacity: .72; }
         .btn-cta .arrow, .pp-link .arrow { transition: transform .2s ease; }
+
+        /* Home hero: full background image (same as the old Thunder & Silk page) */
+        .home-hero-bg {
+            position: relative;
+            background: url('assets/img/project/project4/9.png') center / cover no-repeat;
+        }
+        .home-hero-bg::before {
+            content: ''; position: absolute; inset: 0; z-index: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,.7), rgba(0,0,0,.3));
+        }
+        .home-hero-bg > .container { position: relative; z-index: 1; }
+        .home-hero-bg .contenet-hero,
+        .home-hero-bg .contenet-hero h1,
+        .home-hero-bg .contenet-hero p,
+        .home-hero-bg .contenet-hero .cat span { color: #fff; }
     </style>
 
 </head>
@@ -204,7 +221,7 @@
     <main class="main-root">
         <div id="dsn-scrollbar">
             <header>
-                <div class="header-hero header-hero-2 ">
+                <div class="header-hero header-hero-2 home-hero-bg">
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
                             <div class="col-lg-7">
@@ -215,12 +232,6 @@
                                         <br><br>Shows en plein air cet automne, enregistrements studio cet hiver, puis sur les plateformes.
                                     </p>
                                     <a class="btn-cta" href="project-3-fr.html">Écouter <span class="arrow" aria-hidden="true">→</span></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 text-center">
-                                <div class="header-image">
-                                    <!-- TODO Phil : image hero Thunder & Silk (chemin provisoire) -->
-                                    <img src="assets/img/project/project4/1.jpg" alt="Phil Klab — Thunder & Silk" width="500" height="300" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
                                 </div>
                             </div>
                         </div>
@@ -234,10 +245,6 @@
                     <!-- Block 1 — Thunder & Silk preview -->
                     <div class="container intro-project section-margin">
                         <div class="intro-text text-center">
-                            <div class="title-cover" data-dsn-grid="move-section" data-dsn-opacity="0.1"
-                                data-dsn-duration="170%" data-dsn-move="0%">
-                                Thunder &amp; Silk
-                            </div>
                             <div class="inner">
                                 <h2 data-dsn-animate="text">Un projet en cours. Un territoire propre.</h2>
                                 <p data-dsn-animate="up">Thunder &amp; Silk est le projet en cours de Phil Klab — un ensemble de compositions inédites qui traversent le néo-classique électronique, l'ambient techno, la house minimale et l'electro-funk saturé. Des pièces conçues pour faire bouger les corps autant que les esprits. D'abord sur scène, puis en studio.</p>
@@ -348,17 +355,20 @@
                                     <div class="footer-block col-newsletter">
                                         <h4 class="footer-title">Infolettre</h4>
                                         <p>Nouvelles sorties, dates et démos — directement dans ta boîte.</p>
-                                        <!-- TODO Phil : remplace YOUR_NEWSLETTER_ID par ton endpoint Formspree -->
+                                        <!-- Brevo (FR) — formulaire footer maison, POST natif vers un iframe caché (double opt-in) -->
                                         <form class="footer-newsletter" id="newsletter-form"
-                                            action="https://formspree.io/f/YOUR_NEWSLETTER_ID" method="POST">
+                                            action="https://7df3d48b.sibforms.com/serve/MUIFABwwpamD1tYxx0YehNn9TSLd7IqwWURIn9fRs5jfn0qYdpUEUm0_6vNGDmsQv96P1i2wn70Ccq8HYc2hiqqmQ863JxPHDzy4uMS_su4hvXzDlw-ZIY8JUkbQ8lLcu52N65L_NYeDpzMOsr0K9-k5coOV-uKbCkfzL2bKOi4J6fDpPDodYf6Y7QfxvLExooQBDn6eOMoVEZKkNw=="
+                                            method="POST" target="brevo-hidden-frame" data-type="subscription">
                                             <div class="nl-field">
-                                                <input type="email" name="email" placeholder="Ton courriel" required aria-label="Ton courriel">
+                                                <input type="email" id="EMAIL" name="EMAIL" placeholder="Ton courriel" required aria-label="Ton courriel" autocomplete="email">
                                                 <button type="submit"><span>S'abonner</span></button>
                                             </div>
-                                            <input type="hidden" name="_subject" value="Nouvelle inscription infolettre">
-                                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                                            <!-- Pot de miel Brevo : doit rester vide -->
+                                            <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <input type="hidden" name="locale" value="fr">
                                             <p class="newsletter-msg" aria-live="polite"></p>
                                         </form>
+                                        <iframe name="brevo-hidden-frame" title="Infolettre" style="display:none" aria-hidden="true"></iframe>
                                     </div>
                                 </div>
 
@@ -420,29 +430,30 @@
     <script src="assets/js/dsn-grid.js"></script>
     <script src="assets/js/custom.js"></script>
 
-    <!-- Newsletter AJAX submit (Formspree) -->
+    <!-- Envoi infolettre (Brevo) — POST natif vers l'iframe caché, confirmation inline -->
     <script>
     (function () {
         var f = document.getElementById('newsletter-form');
         if (!f) return;
+        var frame = document.getElementsByName('brevo-hidden-frame')[0];
+        var msg = f.querySelector('.newsletter-msg');
+        var submitted = false;
         f.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var msg = f.querySelector('.newsletter-msg');
-            fetch(f.action, {
-                method: 'POST',
-                body: new FormData(f),
-                headers: { 'Accept': 'application/json' }
-            }).then(function (r) {
-                if (r.ok) {
-                    f.reset();
-                    if (msg) msg.textContent = 'Merci — vérifie ta boîte pour confirmer.';
-                } else {
-                    if (msg) msg.textContent = 'Une erreur est survenue. Réessaie.';
-                }
-            }).catch(function () {
-                if (msg) msg.textContent = 'Erreur réseau. Réessaie.';
-            });
+            // Pot de miel Brevo : si rempli, c'est un robot — on abandonne en silence.
+            var hp = f.querySelector('input[name="email_address_check"]');
+            if (hp && hp.value) { e.preventDefault(); return; }
+            submitted = true;
+            if (msg) msg.textContent = 'Envoi…';
+            // Pas de preventDefault : le POST natif part vers l'iframe caché.
         });
+        if (frame) {
+            frame.addEventListener('load', function () {
+                if (!submitted) return; // ignore le chargement initial (about:blank)
+                submitted = false;
+                if (msg) msg.textContent = 'Merci — vérifie ta boîte pour confirmer.';
+                f.reset();
+            });
+        }
     })();
     </script>
 
