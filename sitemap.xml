@@ -1,15 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.philklab.net/</loc></url>
-  <url><loc>https://www.philklab.net/index-fr.html</loc></url>
-  <url><loc>https://www.philklab.net/project-1.html</loc></url>
-  <url><loc>https://www.philklab.net/project-1-fr.html</loc></url>
-  <url><loc>https://www.philklab.net/project-2.html</loc></url>
-  <url><loc>https://www.philklab.net/project-2-fr.html</loc></url>
-  <url><loc>https://www.philklab.net/project-3.html</loc></url>
-  <url><loc>https://www.philklab.net/project-3-fr.html</loc></url>
-  <url><loc>https://www.philklab.net/about.html</loc></url>
-  <url><loc>https://www.philklab.net/about-fr.html</loc></url>
-  <url><loc>https://www.philklab.net/contact.html</loc></url>
-  <url><loc>https://www.philklab.net/contact-fr.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://philklab.net/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://philklab.net/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://philklab.net/index-fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://philklab.net/" />
+  </url>
+  <url>
+    <loc>https://philklab.net/index-fr.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://philklab.net/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://philklab.net/index-fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://philklab.net/" />
+  </url>
+
+  <!-- Listen / Écouter -->
+  <url>
+    <loc>https://philklab.net/project-3.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://philklab.net/project-3.html" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://philklab.net/project-3-fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://philklab.net/project-3.html" />
+  </url>
+  <url>
+    <loc>https://philklab.net/project-3-fr.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://philklab.net/project-3.html" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://philklab.net/project-3-fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://philklab.net/project-3.html" />
+  </url>
+
+  <!-- Thunder & Silk -->
+  <url>
+    <loc>https://philklab.net/project-4.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://philklab.net/project-4.html" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://philklab.net/project-4-fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://philklab.net/project-4.html" />
+  </url>
+  <url>
+    <loc>https://philklab.net/project-4-fr.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://philklab.net/project-4.html" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://philklab.net/project-4-fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://philklab.net/project-4.html" />
+  </url>
+
+  <!-- About / À propos -->
+  <url>
+    <loc>https://philklab.net/about.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://philklab.net/about.html" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://philklab.net/about-fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://philklab.net/about.html" />
+  </url>
+  <url>
+    <loc>https://philklab.net/about-fr.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://philklab.net/about.html" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://philklab.net/about-fr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://philklab.net/about.html" />
+  </url>
+
 </urlset>

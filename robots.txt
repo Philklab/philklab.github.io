@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.philklab.net/sitemap.xml
+
+Sitemap: https://philklab.net/sitemap.xml
